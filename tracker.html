@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SabiSite Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E1E1B;
+    --surface: #15302A;
+    --surface-2: #1B3A32;
+    --gold: #E8B34C;
+    --teal: #4FBBA6;
+    --red: #E8724C;
+    --text: #F4F0E6;
+    --text-muted: #9FB3AC;
+    --border: rgba(244, 240, 230, 0.1);
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    padding: 28px 20px 60px;
+  }
+  h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  header { margin-bottom: 24px; }
+  header h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  header p { color: var(--text-muted); font-size: 0.9rem; }
+
+  /* Progress card */
+  .progress-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; }
+  .progress-amount { font-family: 'IBM Plex Mono', monospace; font-size: 1.8rem; color: var(--gold); }
+  .progress-amount span { font-size: 0.9rem; color: var(--text-muted); font-family: 'Inter', sans-serif; }
+  .progress-bar-bg { height: 10px; background: var(--surface-2); border-radius: 999px; overflow: hidden; margin-bottom: 8px; }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--gold)); border-radius: 999px; transition: width 0.4s ease; }
+  .progress-meta { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); }
+
+  /* Stats row */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 700px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+  .stat-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .stat-box .val { font-family: 'IBM Plex Mono', monospace; font-size: 1.3rem; color: var(--text); }
+  .stat-box .lbl { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+  /* Daily outreach */
+  .daily-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .daily-left h3 { font-size: 1rem; margin-bottom: 4px; }
+  .daily-left p { font-size: 0.82rem; color: var(--text-muted); }
+  .daily-right { display: flex; align-items: center; gap: 14px; }
+  .daily-count { font-family: 'IBM Plex Mono', monospace; font-size: 1.6rem; }
+  .daily-count.hit { color: var(--teal); }
+  .daily-count.miss { color: var(--gold); }
+  .btn {
+    background: var(--gold);
+    color: #14251F;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+  .btn-sm { padding: 8px 14px; font-size: 0.78rem; }
+
+  /* Add lead form */
+  .add-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .add-card h3 { font-size: 1rem; margin-bottom: 14px; }
+  .form-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  @media (max-width: 700px) { .form-row { grid-template-columns: 1fr; } }
+  input, select {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    width: 100%;
+  }
+  input:focus, select:focus { outline: 1px solid var(--gold); }
+
+  /* Leads table */
+  .leads-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .leads-head { padding: 18px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .leads-head h3 { font-size: 1rem; }
+  .lead-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 0.9fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .lead-row:last-child { border-bottom: none; }
+  @media (max-width: 700px) { .lead-row { grid-template-columns: 1fr; gap: 8px; } }
+  .lead-name { font-weight: 600; font-size: 0.9rem; }
+  .lead-date { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+  .status-badge {
+    display: inline-flex;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    width: fit-content;
+  }
+  .status-contacted { background: rgba(159,179,172,0.15); color: var(--text-muted); }
+  .status-replied { background: rgba(79,187,166,0.15); color: var(--teal); }
+  .status-quoted { background: rgba(232,179,76,0.15); color: var(--gold); }
+  .status-closed { background: rgba(79,187,166,0.25); color: var(--teal); }
+  .status-lost { background: rgba(232,114,76,0.15); color: var(--red); }
+  .lead-amount { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+  .lead-actions { display: flex; gap: 6px; }
+  .icon-btn {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { color: var(--text); }
+  .empty-state { padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.88rem; }
+  .loading { padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>SabiSite — Deal Tracker</h1>
+    <p>Track leads, close deals, hit ₦1,000,000 before October 1.</p>
+  </header>
+
+  <div class="progress-card">
+    <div class="progress-top">
+      <div class="progress-amount"><span class="mono" id="revenue-amount">₦0</span> <span>of ₦1,000,000</span></div>
+      <div class="progress-meta" id="days-left"></div>
+    </div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-meta">
+      <span id="progress-pct">0% of goal</span>
+      <span id="remaining-amount">₦1,000,000 to go</span>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box"><div class="val" id="stat-total">0</div><div class="lbl">Total leads</div></div>
+    <div class="stat-box"><div class="val" id="stat-replied">0</div><div class="lbl">Replied</div></div>
+    <div class="stat-box"><div class="val" id="stat-closed">0</div><div class="lbl">Closed</div></div>
+    <div class="stat-box"><div class="val" id="stat-rate">0%</div><div class="lbl">Close rate</div></div>
+  </div>
+
+  <div class="daily-card">
+    <div class="daily-left">
+      <h3>Today's outreach</h3>
+      <p>Goal: 50 businesses messaged per day</p>
+    </div>
+    <div class="daily-right">
+      <div class="daily-count" id="daily-count">0 / 50</div>
+      <button class="btn btn-sm btn-ghost" onclick="adjustDaily(-1)">−1</button>
+      <button class="btn" onclick="adjustDaily(1)">+1 messaged</button>
+    </div>
+  </div>
+
+  <div class="add-card">
+    <h3>Add a lead</h3>
+    <div class="form-row">
+      <input type="text" id="input-name" placeholder="Business name" />
+      <select id="input-status">
+        <option value="contacted">Contacted</option>
+        <option value="replied">Replied</option>
+        <option value="quoted">Quoted</option>
+        <option value="closed">Closed</option>
+        <option value="lost">Lost</option>
+      </select>
+      <input type="number" id="input-amount" placeholder="Amount (₦, if closed)" />
+    </div>
+    <button class="btn" onclick="addLead()">Add lead</button>
+  </div>
+
+  <div class="leads-card">
+    <div class="leads-head">
+      <h3>All leads</h3>
+      <button class="btn btn-ghost btn-sm" onclick="clearAll()">Clear all</button>
+    </div>
+    <div id="leads-list"><div class="loading">Loading...</div></div>
+  </div>
+</div>
+
+<script>
+  const GOAL = 1000000;
+  const DAILY_TARGET = 50;
+  let leads = [];
+  let todayCount = 0;
+  const todayKey = () => 'daily-' + new Date().toISOString().slice(0,10);
+
+  function fmtMoney(n) {
+    return '₦' + Number(n).toLocaleString('en-NG');
+  }
+
+  function daysUntilOct1() {
+    const now = new Date();
+    const target = new Date(now.getFullYear(), 9, 1); // October is month index 9
+    if (target < now) target.setFullYear(target.getFullYear() + 1);
+    const diff = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+    return diff;
+  }
+
+  async function loadData() {
+    try {
+      const leadsRes = await window.storage.get('leads-list');
+      leads = leadsRes ? JSON.parse(leadsRes.value) : [];
+    } catch (e) { leads = []; }
+    try {
+      const dailyRes = await window.storage.get(todayKey());
+      todayCount = dailyRes ? JSON.parse(dailyRes.value) : 0;
+    } catch (e) { todayCount = 0; }
+    render();
+  }
+
+  async function saveLeads() {
+    try { await window.storage.set('leads-list', JSON.stringify(leads)); }
+    catch (e) { console.error('save failed', e); }
+  }
+
+  async function saveDaily() {
+    try { await window.storage.set(todayKey(), JSON.stringify(todayCount)); }
+    catch (e) { console.error('save failed', e); }
+  }
+
+  async function addLead() {
+    const name = document.getElementById('input-name').value.trim();
+    const status = document.getElementById('input-status').value;
+    const amount = document.getElementById('input-amount').value;
+    if (!name) return;
+    leads.unshift({
+      id: Date.now().toString(),
+      name,
+      status,
+      amount: amount ? Number(amount) : 0,
+      date: new Date().toISOString().slice(0,10)
+    });
+    document.getElementById('input-name').value = '';
+    document.getElementById('input-amount').value = '';
+    await saveLeads();
+    render();
+  }
+
+  async function updateStatus(id, newStatus) {
+    const lead = leads.find(l => l.id === id);
+    if (lead) lead.status = newStatus;
+    await saveLeads();
+    render();
+  }
+
+  async function deleteLead(id) {
+    leads = leads.filter(l => l.id !== id);
+    await saveLeads();
+    render();
+  }
+
+  async function clearAll() {
+    if (!confirm('Clear all leads? This cannot be undone.')) return;
+    leads = [];
+    await saveLeads();
+    render();
+  }
+
+  async function adjustDaily(delta) {
+    todayCount = Math.max(0, todayCount + delta);
+    await saveDaily();
+    render();
+  }
+
+  function render() {
+    const closedLeads = leads.filter(l => l.status === 'closed');
+    const revenue = closedLeads.reduce((sum, l) => sum + (l.amount || 0), 0);
+    const pct = Math.min(100, (revenue / GOAL) * 100);
+
+    document.getElementById('revenue-amount').textContent = fmtMoney(revenue);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-pct').textContent = pct.toFixed(1) + '% of goal';
+    document.getElementById('remaining-amount').textContent = fmtMoney(Math.max(0, GOAL - revenue)) + ' to go';
+    document.getElementById('days-left').textContent = daysUntilOct1() + ' days until Oct 1';
+
+    document.getElementById('stat-total').textContent = leads.length;
+    document.getElementById('stat-replied').textContent = leads.filter(l => ['replied','quoted','closed'].includes(l.status)).length;
+    document.getElementById('stat-closed').textContent = closedLeads.length;
+    const rate = leads.length ? ((closedLeads.length / leads.length) * 100).toFixed(0) : 0;
+    document.getElementById('stat-rate').textContent = rate + '%';
+
+    const dailyEl = document.getElementById('daily-count');
+    dailyEl.textContent = todayCount + ' / ' + DAILY_TARGET;
+    dailyEl.className = 'daily-count ' + (todayCount >= DAILY_TARGET ? 'hit' : 'miss');
+
+    const listEl = document.getElementById('leads-list');
+    if (leads.length === 0) {
+      listEl.innerHTML = '<div class="empty-state">No leads yet. Add your first one above.</div>';
+      return;
+    }
+    listEl.innerHTML = leads.map(l => `
+      <div class="lead-row">
+        <div>
+          <div class="lead-name">${escapeHtml(l.name)}</div>
+          <div class="lead-date">${l.date}</div>
+        </div>
+        <select class="status-badge status-${l.status}" onchange="updateStatus('${l.id}', this.value)" style="border:none; cursor:pointer;">
+          <option value="contacted" ${l.status==='contacted'?'selected':''}>Contacted</option>
+          <option value="replied" ${l.status==='replied'?'selected':''}>Replied</option>
+          <option value="quoted" ${l.status==='quoted'?'selected':''}>Quoted</option>
+          <option value="closed" ${l.status==='closed'?'selected':''}>Closed</option>
+          <option value="lost" ${l.status==='lost'?'selected':''}>Lost</option>
+        </select>
+        <div class="lead-amount">${l.amount ? fmtMoney(l.amount) : '—'}</div>
+        <div class="lead-actions">
+          <button class="icon-btn" onclick="deleteLead('${l.id}')" title="Delete">✕</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  loadData();
+</script>
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SabiSite — Your business website, live in 72 hours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E1E1B;
+    --surface: #15302A;
+    --surface-2: #1B3A32;
+    --gold: #E8B34C;
+    --teal: #4FBBA6;
+    --text: #F4F0E6;
+    --text-muted: #9FB3AC;
+    --border: rgba(244, 240, 230, 0.1);
+    --radius: 14px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 30, 27, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--gold);
+    color: #14251F;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* HERO */
+  .hero {
+    padding: 96px 0 80px;
+    position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 18px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent { color: var(--gold); }
+
+  .hero p.sub {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin-bottom: 32px;
+  }
+
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: #14251F;
+  }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn-secondary:hover { background: var(--surface); }
+
+  /* PHONE MOCKUP */
+  .phone {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 20px;
+    max-width: 340px;
+    margin: 0 auto;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
+  }
+  .phone-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .phone-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--teal));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.8rem; color: #14251F;
+  }
+  .phone-header .name { font-weight: 600; font-size: 0.9rem; }
+  .phone-header .status { font-size: 0.75rem; color: var(--teal); }
+
+  .chat-bubble {
+    max-width: 82%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 0.82rem;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+  .chat-in {
+    background: var(--surface-2);
+    border-bottom-left-radius: 4px;
+  }
+  .chat-out {
+    background: var(--gold);
+    color: #14251F;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+  }
+  .chat-day {
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 14px 0 10px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .chat-bubble:nth-child(2) { animation-delay: 0.2s; }
+  .chat-day:nth-child(3) { animation-delay: 0.6s; }
+  .chat-bubble:nth-child(4) { animation-delay: 0.9s; }
+  .chat-day:nth-child(5) { animation-delay: 1.3s; }
+  .chat-bubble:nth-child(6) { animation-delay: 1.6s; }
+  .chat-bubble:nth-child(7) { animation-delay: 2.0s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chat-bubble, .chat-day { animation: none; opacity: 1; }
+  }
+
+  /* SECTION HEADER */
+  .section { padding: 72px 0; }
+  .section-head { max-width: 560px; margin-bottom: 48px; }
+  .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 12px; }
+  .section-head p { color: var(--text-muted); }
+
+  /* HOW IT WORKS */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+  }
+  .step-num {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--gold);
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+  }
+  .step h3 { font-size: 1.05rem; margin-bottom: 8px; }
+  .step p { font-size: 0.9rem; color: var(--text-muted); }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+  .price-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease;
+  }
+  .price-card:hover { border-color: var(--gold); }
+  .price-card.featured {
+    border-color: var(--gold);
+    background: linear-gradient(180deg, rgba(232,179,76,0.08), var(--surface));
+  }
+  .price-tier { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+  .price-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 6px; }
+  .price-amount { font-family: 'IBM Plex Mono', monospace; font-size: 1.6rem; color: var(--gold); margin-bottom: 18px; }
+  .price-amount span { font-size: 0.85rem; color: var(--text-muted); font-family: 'Inter', sans-serif; }
+  .price-features { list-style: none; font-size: 0.87rem; color: var(--text-muted); margin-bottom: 24px; flex-grow: 1; }
+  .price-features li { padding: 7px 0; border-top: 1px solid var(--border); }
+  .price-features li:first-child { border-top: none; }
+
+  /* PORTFOLIO */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  /* Model/creative portfolio mockup */
+  .mock-portrait { height: 76px; border-radius: 5px; background: linear-gradient(160deg, var(--gold), var(--surface) 70%); opacity: 0.55; }
+  .mock-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; flex-grow: 1; }
+  .mock-gallery .mock-sq { border-radius: 4px; background: var(--surface); }
+  .mock-gallery .mock-sq:nth-child(1) { background: linear-gradient(135deg, var(--teal), transparent); }
+  .mock-gallery .mock-sq:nth-child(3) { background: linear-gradient(135deg, var(--gold), transparent); }
+  @media (max-width: 900px) { .portfolio-grid { grid-template-columns: 1fr; } }
+  .portfolio-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .portfolio-thumb {
+    height: 160px;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mock-bar {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 4px;
+  }
+  .mock-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+  .mock-body { flex-grow: 1; display: flex; flex-direction: column; gap: 7px; }
+
+  /* Boutique: product grid mockup */
+  .mock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; flex-grow: 1; }
+  .mock-grid .mock-sq { border-radius: 4px; background: var(--surface); }
+  .mock-grid .mock-sq:nth-child(1) { background: linear-gradient(135deg, var(--gold), transparent); }
+  .mock-grid .mock-sq:nth-child(4) { background: linear-gradient(135deg, var(--teal), transparent); }
+  .mock-line { height: 5px; border-radius: 3px; background: var(--surface); }
+  .mock-line.w-60 { width: 60%; }
+  .mock-line.w-40 { width: 40%; background: var(--gold); opacity: 0.7; }
+
+  /* Real estate: hero + listing card */
+  .mock-hero { height: 58px; border-radius: 5px; background: linear-gradient(135deg, var(--teal), var(--surface)); opacity: 0.5; }
+  .mock-listing { display: flex; gap: 8px; align-items: center; background: var(--surface); border-radius: 5px; padding: 6px 8px; }
+  .mock-listing .mock-thumb-sm { width: 26px; height: 26px; border-radius: 4px; background: var(--gold); opacity: 0.6; flex-shrink: 0; }
+  .mock-listing .mock-lines { flex-grow: 1; display: flex; flex-direction: column; gap: 4px; }
+
+  /* Restaurant: menu list */
+  .mock-menu-row { display: flex; justify-content: space-between; align-items: center; }
+  .mock-menu-row .mock-line { flex-grow: 1; margin-right: 10px; }
+  .mock-price { width: 22px; height: 5px; border-radius: 3px; background: var(--gold); opacity: 0.7; }
+  .portfolio-body { padding: 18px 20px; }
+  .portfolio-body .tag { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; display: block; }
+  .portfolio-body h3 { font-size: 1rem; margin-bottom: 4px; }
+  .portfolio-body p { font-size: 0.85rem; color: var(--text-muted); }
+
+  /* FOOTER CTA */
+  .footer-cta {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 56px 40px;
+    text-align: center;
+    margin: 0 24px 72px;
+    border: 1px solid var(--border);
+  }
+  .footer-cta h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: 14px; }
+  .footer-cta p { color: var(--text-muted); margin-bottom: 28px; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+
+  .whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--gold);
+    color: #14251F;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px -8px rgba(232,179,76,0.6);
+    z-index: 60;
+    font-weight: 700;
+    font-size: 1.4rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><span class="logo-dot"></span>SabiSite</div>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#work">Recent work</a>
+    </div>
+    <a href="https://wa.me/2347047426376?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business" class="nav-cta">Chat on WhatsApp</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Built for Nigerian businesses</div>
+      <h1>Your business website.<br><span class="accent">Live in 72 hours.</span></h1>
+      <p class="sub">AI-built, mobile-first sites — no long agency wait, no confusing tech talk. Send your business details on WhatsApp and watch your site come together in real time.</p>
+      <div class="btn-row">
+        <a href="https://wa.me/2347047426376?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business" class="btn btn-primary">Start on WhatsApp →</a>
+        <a href="#pricing" class="btn btn-secondary">See pricing</a>
+      </div>
+    </div>
+    <div class="phone">
+      <div class="phone-header">
+        <div class="phone-avatar">SS</div>
+        <div>
+          <div class="name">SabiSite</div>
+          <div class="status">● online</div>
+        </div>
+      </div>
+      <div class="chat-day">Day 1</div>
+      <div class="chat-bubble chat-in">Sent our logo + a few photos, plus our price list 📸</div>
+      <div class="chat-day">Day 2</div>
+      <div class="chat-bubble chat-out">Here's your homepage draft — take a look 🎨</div>
+      <div class="chat-day">Day 3</div>
+      <div class="chat-bubble chat-out">It's live 🚀 yourbusiness.sabisite.ng</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How it works</h2>
+      <p>Three steps, no meetings you don't have time for.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num mono">01</div>
+        <h3>Send your details</h3>
+        <p>Logo, photos, price list, and what you want your site to say — all over WhatsApp, whenever you're free.</p>
+      </div>
+      <div class="step">
+        <div class="step-num mono">02</div>
+        <h3>We build, you review</h3>
+        <p>You'll see a working draft within a day or two. Ask for changes directly, no back-and-forth emails.</p>
+      </div>
+      <div class="step">
+        <div class="step-num mono">03</div>
+        <h3>It goes live</h3>
+        <p>Your site launches on your own domain. We keep it updated and running so you don't have to think about it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Simple pricing</h2>
+      <p>Pick a tier. Every plan includes a mobile-friendly design and a WhatsApp contact button, because that's how your customers will actually reach you.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-name">Just get online</div>
+        <div class="price-amount">₦60,000<span> one-time</span></div>
+        <ul class="price-features">
+          <li>1–3 pages</li>
+          <li>WhatsApp + Instagram links</li>
+          <li>Mobile-first design</li>
+          <li>Delivered in 72 hours</li>
+        </ul>
+        <a href="https://wa.me/2347047426376?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business" class="btn btn-secondary">Get started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tier">Standard</div>
+        <div class="price-name">Full business site</div>
+        <div class="price-amount">₦120,000<span> one-time</span></div>
+        <ul class="price-features">
+          <li>5–7 pages</li>
+          <li>Product / service catalog</li>
+          <li>Contact + booking forms</li>
+          <li>Delivered in 72 hours</li>
+        </ul>
+        <a href="https://wa.me/2347047426376?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business" class="btn btn-primary">Get started</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Maintenance</div>
+        <div class="price-name">Keep it running</div>
+        <div class="price-amount">₦12,000<span> / month</span></div>
+        <ul class="price-features">
+          <li>Content updates</li>
+          <li>Small design changes</li>
+          <li>Uptime monitoring</li>
+          <li>Priority WhatsApp support</li>
+        </ul>
+        <a href="https://wa.me/2347047426376?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business" class="btn btn-secondary">Add to any plan</a>
+      </div>
+    </div>
+    <p style="margin-top:20px; font-size:0.88rem; color:var(--text-muted);">
+      Model or creative? Portfolio sites are priced separately, from <span style="color:var(--gold); font-family:'IBM Plex Mono',monospace;">₦50,000</span> — <a href="https://wa.me/2347047426376?text=Hi%2C%20I%27m%20interested%20in%20a%20portfolio%20site" style="color:var(--gold); text-decoration:underline;">ask about it here</a>.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Recent work</h2>
+      <p>A few examples of what your site could look like. Ask on WhatsApp to see live links.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">
+          <div class="mock-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+          <div class="mock-body">
+            <div class="mock-line w-40"></div>
+            <div class="mock-grid">
+              <div class="mock-sq"></div><div class="mock-sq"></div><div class="mock-sq"></div>
+              <div class="mock-sq"></div><div class="mock-sq"></div><div class="mock-sq"></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <span class="tag">Boutique</span>
+          <h3>Fashion & clothing</h3>
+          <p>Catalog site with WhatsApp ordering</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">
+          <div class="mock-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+          <div class="mock-body">
+            <div class="mock-hero"></div>
+            <div class="mock-listing">
+              <div class="mock-thumb-sm"></div>
+              <div class="mock-lines"><div class="mock-line w-60"></div><div class="mock-line w-40"></div></div>
+            </div>
+            <div class="mock-listing">
+              <div class="mock-thumb-sm"></div>
+              <div class="mock-lines"><div class="mock-line w-60"></div><div class="mock-line w-40"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <span class="tag">Real estate</span>
+          <h3>Property listings</h3>
+          <p>Listings page with inquiry form</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-thumb">
+          <div class="mock-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+          <div class="mock-body">
+            <div class="mock-line w-40"></div>
+            <div class="mock-menu-row"><div class="mock-line w-60"></div><div class="mock-price"></div></div>
+            <div class="mock-menu-row"><div class="mock-line w-60"></div><div class="mock-price"></div></div>
+            <div class="mock-menu-row"><div class="mock-line w-60"></div><div class="mock-price"></div></div>
+            <div class="mock-menu-row"><div class="mock-line w-60"></div><div class="mock-price"></div></div>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <span class="tag">Restaurant</span>
+          <h3>Menu & bookings</h3>
+          <p>Digital menu with table reservations</p>
+        </div>
+      </div>
+      <a href="https://preciousfreeman.lovable.app" target="_blank" class="portfolio-card" style="display:block; cursor:pointer;">
+        <div class="portfolio-thumb">
+          <div class="mock-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+          <div class="mock-body">
+            <div class="mock-portrait"></div>
+            <div class="mock-gallery">
+              <div class="mock-sq"></div><div class="mock-sq"></div><div class="mock-sq"></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <span class="tag">Model portfolio</span>
+          <h3>Precious Freeman</h3>
+          <p>Fashion, beauty & commercial model — view live site ↗</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="footer-cta">
+  <h2>Ready to get your business online?</h2>
+  <p>Send a message — takes less than a minute to get started.</p>
+  <a href="https://wa.me/2347047426376?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business" class="btn btn-primary">Chat on WhatsApp →</a>
+</div>
+
+<footer>
+  <div class="wrap">SabiSite — websites for Nigerian businesses, built fast.</div>
+</footer>
+
+<a href="https://wa.me/2347047426376?text=Hi%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business" class="whatsapp-float">💬</a>
+
+</body>
+</html>

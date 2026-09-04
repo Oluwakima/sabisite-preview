@@ -1,0 +1,4950 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>SabiSite â€” AI-assisted websites. Human-directed design.</title>
+
+  <meta
+    name="description"
+    content="SabiSite designs and builds modern websites for ambitious businesses, brands and professionals."
+  />
+
+  <meta name="theme-color" content="#10110e" />
+
+  <style>
+    /* =========================================================
+       SABISITE 2.0 â€” DESIGN SYSTEM
+       ========================================================= */
+
+    :root {
+      --black: #10110e;
+      --black-soft: #171914;
+      --cream: #f2efe6;
+      --cream-muted: #c9c6bb;
+      --green: #b8ee55;
+      --green-dark: #8dbd36;
+      --line: rgba(242, 239, 230, 0.14);
+
+      --max-width: 1240px;
+
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family:
+        Inter,
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(
+        calc(100% - 48px),
+        var(--max-width)
+      );
+
+      margin-inline: auto;
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .site-nav {
+      height: 86px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom: 1px solid var(--line);
+
+      position: relative;
+      z-index: 20;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+
+      letter-spacing: -0.075em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      font-size: 13px;
+      color: var(--cream-muted);
+    }
+
+    .nav-links a {
+      transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 12px 17px;
+
+      background: var(--cream);
+      color: var(--black);
+
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      transition:
+        transform 0.25s var(--ease),
+        background 0.25s ease;
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      background: var(--green);
+    }
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: 720px;
+
+      padding: 90px 0 100px;
+
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+
+      gap: 70px;
+
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 26px;
+
+      color: var(--green);
+
+      font-size: 11px;
+      font-weight: 850;
+
+      letter-spacing: 0.17em;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+
+      font-size:
+        clamp(
+          58px,
+          7.4vw,
+          112px
+        );
+
+      line-height: 0.88;
+
+      letter-spacing: -0.075em;
+
+      font-weight: 850;
+    }
+
+    .hero-copy {
+      max-width: 580px;
+
+      margin-top: 32px;
+
+      color: var(--cream-muted);
+
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .hero-copy strong {
+      color: var(--cream);
+      font-weight: 650;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      margin-top: 34px;
+
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      min-height: 50px;
+
+      padding: 0 20px;
+
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 850;
+
+      transition:
+        transform 0.3s var(--ease),
+        background 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .button-primary {
+      background: var(--green);
+      color: var(--black);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-3px);
+      background: #c9ff70;
+    }
+
+    .button-secondary {
+      border: 1px solid var(--line);
+      color: var(--cream);
+    }
+
+    .button-secondary:hover {
+      transform: translateY(-3px);
+      border-color: rgba(242, 239, 230, 0.35);
+    }
+
+
+    /* =========================================================
+       HERO PROJECT STACK
+       ========================================================= */
+
+    .hero-visual {
+      position: relative;
+
+      min-height: 520px;
+    }
+
+    .project-window {
+      position: absolute;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(
+        242,
+        239,
+        230,
+        0.2
+      );
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.45);
+
+      transition:
+        transform 0.6s var(--ease);
+    }
+
+    .project-window:hover {
+      transform: translateY(-8px) rotate(0deg) !important;
+    }
+
+    .window-top {
+      height: 31px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 5px;
+
+      padding-left: 11px;
+
+      background: rgba(
+        0,
+        0,
+        0,
+        0.45
+      );
+    }
+
+    .window-dot {
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: rgba(
+        242,
+        239,
+        230,
+        0.35
+      );
+    }
+
+    .window-content {
+      height: calc(100% - 31px);
+
+      padding: 28px;
+    }
+
+    .window-label {
+      display: inline-block;
+
+      padding: 6px 9px;
+
+      border: 1px solid currentColor;
+
+      border-radius: 999px;
+
+      font-size: 8px;
+      font-weight: 850;
+
+      letter-spacing: 0.14em;
+    }
+
+    .window-title {
+      margin-top: 42px;
+
+      max-width: 270px;
+
+      font-size: 42px;
+      line-height: 0.88;
+
+      letter-spacing: -0.07em;
+
+      font-weight: 900;
+    }
+
+    .window-line {
+      width: 58%;
+      height: 5px;
+
+      margin-top: 24px;
+
+      background: currentColor;
+
+      opacity: 0.5;
+    }
+
+    .window-line-small {
+      width: 34%;
+      height: 5px;
+
+      margin-top: 8px;
+
+      background: currentColor;
+
+      opacity: 0.3;
+    }
+
+    .window-one {
+      width: 80%;
+      height: 315px;
+
+      top: 0;
+      right: 0;
+
+      z-index: 1;
+
+      background:
+        linear-gradient(
+          135deg,
+          #24291f,
+          #11130f
+        );
+
+      transform: rotate(2deg);
+    }
+
+    .window-two {
+      width: 70%;
+      height: 285px;
+
+      top: 150px;
+      left: 0;
+
+      z-index: 2;
+
+      color: #14150f;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ddd6c8,
+          #888174
+        );
+
+      transform: rotate(-3deg);
+    }
+
+    .window-three {
+      width: 62%;
+      height: 230px;
+
+      right: 7%;
+      bottom: 0;
+
+      z-index: 3;
+
+      color: #10110e;
+
+      background:
+        linear-gradient(
+          135deg,
+          #e7e0d1,
+          #b4c88c
+        );
+
+      transform: rotate(2deg);
+    }
+
+
+    /* =========================================================
+       SHARED SECTION
+       ========================================================= */
+
+    .section {
+      padding: 125px 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      margin-bottom: 20px;
+
+      color: var(--green);
+
+      font-size: 11px;
+      font-weight: 850;
+
+      letter-spacing: 0.17em;
+    }
+
+    .section-title {
+      max-width: 950px;
+
+      font-size:
+        clamp(
+          43px,
+          6vw,
+          82px
+        );
+
+      line-height: 0.93;
+
+      letter-spacing: -0.065em;
+
+      font-weight: 850;
+    }
+
+/* =========================================================
+   POSITIONING
+   ========================================================= */
+
+.positioning {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(280px, 0.75fr);
+
+  gap: 90px;
+
+  align-items: end;
+}
+
+.positioning-copy {
+  max-width: 430px;
+
+  padding-bottom: 5px;
+}
+
+.positioning-copy p {
+  color: var(--cream-muted);
+
+  font-size: 18px;
+
+  line-height: 1.55;
+
+  margin-bottom: 20px;
+}
+
+.positioning-copy p:last-child {
+  color: var(--cream);
+
+  font-weight: 700;
+
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   PRINCIPLES
+   ========================================================= */
+
+.principles {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 1px;
+
+  margin-top: 90px;
+
+  background: var(--line);
+}
+
+.principle {
+  min-height: 270px;
+
+  padding: 30px;
+
+  background: var(--black);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  transition:
+    background 0.35s ease;
+}
+
+.principle:hover {
+  background: var(--black-soft);
+}
+
+.principle-number {
+  color: var(--green);
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+  letter-spacing: 0.12em;
+}
+
+.principle-content h3 {
+  margin-bottom: 10px;
+
+  font-size: 29px;
+
+  line-height: 1;
+
+  letter-spacing: -0.055em;
+}
+
+.principle-content p {
+  max-width: 310px;
+
+  color: #92918a;
+
+  font-size: 14px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.services-heading {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    360px;
+
+  gap: 80px;
+
+  align-items: end;
+}
+
+.services-intro {
+  color: var(--cream-muted);
+
+  font-size: 17px;
+
+  line-height: 1.55;
+
+  max-width: 330px;
+
+  margin-bottom: 5px;
+}
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 1px;
+
+  margin-top: 70px;
+
+  background: var(--line);
+}
+
+.service-card {
+  min-height: 320px;
+
+  padding: 30px;
+
+  background: var(--black);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  transition:
+    background 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+.service-card:hover {
+  background: var(--black-soft);
+
+  transform: translateY(-3px);
+}
+
+.service-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.service-number {
+  color: var(--green);
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+  letter-spacing: 0.12em;
+}
+
+.service-arrow {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid var(--line);
+
+  border-radius: 50%;
+
+  color: var(--cream-muted);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s var(--ease);
+}
+
+.service-card:hover .service-arrow {
+  background: var(--green);
+
+  color: var(--black);
+
+  transform: rotate(45deg);
+}
+
+.service-body h3 {
+  font-size:
+    clamp(
+      32px,
+      4vw,
+      50px
+    );
+
+  line-height: 0.9;
+
+  letter-spacing: -0.065em;
+
+  margin-bottom: 18px;
+}
+
+.service-body p {
+  max-width: 390px;
+
+  color: #92918a;
+
+  font-size: 14px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   RESPONSIVE â€” NEW SECTIONS
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .positioning {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .positioning-copy {
+    max-width: 600px;
+  }
+
+  .services-heading {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .principles {
+    grid-template-columns: 1fr;
+
+    margin-top: 60px;
+  }
+
+  .principle {
+    min-height: 220px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+
+    margin-top: 55px;
+  }
+
+  .service-card {
+    min-height: 280px;
+  }
+
+}/* =========================================================
+   WORK SECTION
+   ========================================================= */
+
+.work-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 80px;
+  align-items: end;
+}
+
+.work-intro {
+  color: var(--cream-muted);
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 330px;
+  margin-bottom: 5px;
+}
+
+.work-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.55fr);
+  gap: 1px;
+  margin-top: 70px;
+  background: var(--line);
+}
+
+.work-visual {
+  min-height: 600px;
+  background: #171714;
+  padding: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.browser-frame {
+  width: 100%;
+  max-width: 850px;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45);
+  transform: perspective(1200px) rotateX(2deg);
+  transition: transform 0.6s var(--ease);
+}
+
+.work-feature:hover .browser-frame {
+  transform: perspective(1200px) rotateX(0deg) translateY(-5px);
+}
+
+.browser-top {
+  height: 34px;
+  padding: 0 14px;
+  background: #242420;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.browser-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.browser-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5f5f58;
+}
+
+.browser-address {
+  flex: 1;
+  text-align: center;
+  color: #77776f;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.haven-preview {
+  min-height: 470px;
+  padding: 28px;
+  background: linear-gradient(135deg, #d8d0bd, #b6aa91);
+  color: #171713;
+  position: relative;
+  overflow: hidden;
+}
+
+.haven-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 10px;
+}
+
+.haven-nav strong {
+  margin-right: auto;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+
+.haven-content {
+  position: absolute;
+  left: 10%;
+  bottom: 12%;
+}
+
+.haven-content > span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.haven-content h3 {
+  margin: 18px 0;
+  font-size: clamp(38px, 6vw, 76px);
+  line-height: 0.88;
+  letter-spacing: -0.07em;
+  font-weight: 700;
+}
+
+.haven-button {
+  display: inline-block;
+  padding: 12px 18px;
+  background: #171713;
+  color: #f1ede4;
+  font-size: 10px;
+}
+
+.work-feature-copy {
+  padding: 45px;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.work-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.work-feature-copy h3 {
+  margin-top: 25px;
+  font-size: clamp(45px, 5vw, 75px);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.work-feature-copy p {
+  max-width: 400px;
+  margin-top: 25px;
+  color: #92918a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 30px;
+}
+
+.work-tags span {
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  color: var(--cream-muted);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: 1px;
+  background: var(--line);
+}
+
+.work-card {
+  background: var(--black);
+  overflow: hidden;
+  transition: background 0.35s ease;
+}
+
+.work-card:hover {
+  background: var(--black-soft);
+}
+
+.work-card-visual {
+  min-height: 430px;
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  transition: transform 0.5s var(--ease);
+}
+
+.work-card:hover .work-card-visual {
+  transform: scale(1.015);
+}
+
+.work-card-info {
+  padding: 24px 30px 30px;
+}
+
+.work-card-info h3 {
+  margin-top: 13px;
+  font-size: 29px;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+/* VANGA */
+
+.vanga-preview {
+  background: linear-gradient(135deg, #d6d1c5, #88877e);
+  color: #171713;
+}
+
+.mini-brand {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.mini-fashion {
+  position: absolute;
+  left: 12%;
+  bottom: 15%;
+}
+
+.mini-fashion span {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+
+.mini-fashion strong {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(45px, 7vw, 82px);
+  line-height: 0.82;
+  letter-spacing: -0.08em;
+}
+
+/* SABISOLE */
+
+.sabisole-preview {
+  background: radial-gradient(circle at 70% 35%, #d9d0bd, #726d61 65%);
+  color: #f4f0e8;
+}
+
+.shoe-shape {
+  position: absolute;
+  width: 62%;
+  height: 55%;
+  left: 20%;
+  top: 24%;
+  transform: rotate(-18deg);
+}
+
+.shoe-upper {
+  position: absolute;
+  width: 80%;
+  height: 55%;
+  left: 5%;
+  top: 15%;
+  border-radius: 55% 25% 20% 45%;
+  background: #1a1a17;
+}
+
+.shoe-sole {
+  position: absolute;
+  width: 88%;
+  height: 12%;
+  left: 2%;
+  bottom: 22%;
+  border-radius: 50%;
+  background: #e5e0d6;
+}
+
+.mini-shop {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+/* PRECIOUS FREEMAN */
+
+.precious-preview {
+  background: #d2cec2;
+  color: #181815;
+}
+
+.precious-name {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  font-size: clamp(32px, 5vw, 62px);
+  line-height: 0.85;
+  letter-spacing: -0.07em;
+  font-weight: 800;
+}
+
+.precious-circle {
+  position: absolute;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: 10%;
+  right: 8%;
+  background: radial-gradient(circle, #49463e 0 20%, #8e887b 21% 45%, #c2b9a9 46% 100%);
+  opacity: 0.85;
+}
+
+.precious-caption {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+}
+
+/* KORA */
+
+.kora-preview {
+  background: #ebe4d5;
+  color: #1b1b17;
+}
+
+.kora-mark {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.kora-title {
+  position: absolute;
+  left: 10%;
+  top: 25%;
+  font-size: clamp(38px, 6vw, 70px);
+  line-height: 0.82;
+  letter-spacing: -0.08em;
+  font-weight: 800;
+}
+
+/* LAGOSSTAY */
+
+.lagosstay-preview {
+  background: linear-gradient(135deg, #34362f, #737461);
+  color: #eeeade;
+}
+
+.stay-top {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.stay-title {
+  position: absolute;
+  left: 10%;
+  bottom: 19%;
+  font-size: clamp(45px, 7vw, 80px);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  font-weight: 800;
+}
+
+/* AURELIA */
+
+.aurelia-preview {
+  background: #d8d1c4;
+  color: #292821;
+}
+
+.aurelia-brand {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+.aurelia-title {
+  position: absolute;
+  left: 12%;
+  bottom: 20%;
+  font-family: Georgia, serif;
+  font-size: clamp(45px, 7vw, 80px);
+  line-height: 0.8;
+  letter-spacing: -0.07em;
+}
+
+/* MOTIVE */
+
+.motive-preview {
+  background: #151513;
+  color: #f1eee5;
+}
+
+.motive-brand {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.motive-title {
+  position: absolute;
+  left: 10%;
+  bottom: 15%;
+  font-size: clamp(42px, 7vw, 78px);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  font-weight: 850;
+}
+
+/* ATLAS MOTORS */
+
+.atlas-preview {
+  background: linear-gradient(135deg, #c9c7bf, #73736c);
+  color: #171713;
+}
+
+.atlas-top {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.atlas-car {
+  position: absolute;
+  width: 75%;
+  height: 38%;
+  left: 13%;
+  top: 34%;
+}
+
+.car-body {
+  position: absolute;
+  width: 100%;
+  height: 45%;
+  bottom: 15%;
+  border-radius: 35% 20% 10% 15%;
+  background: #252521;
+}
+
+.car-roof {
+  position: absolute;
+  width: 55%;
+  height: 48%;
+  left: 23%;
+  top: 3%;
+  border-radius: 60% 60% 10% 10%;
+  background: #30302b;
+}
+
+.car-wheel {
+  position: absolute;
+  width: 14%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  bottom: 0;
+  background: #11110f;
+  border: 7px solid #575750;
+}
+
+.car-wheel.left {
+  left: 13%;
+}
+
+.car-wheel.right {
+  right: 13%;
+}
+
+/* SABISITE */
+
+.sabisite-preview {
+  background: var(--green);
+  color: var(--black);
+}
+
+.sabisite-symbol {
+  position: absolute;
+  right: 10%;
+  top: 5%;
+  font-size: clamp(180px, 28vw, 330px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.12em;
+  opacity: 0.13;
+}
+
+.sabisite-title {
+  position: absolute;
+  left: 10%;
+  bottom: 22%;
+  font-size: clamp(45px, 7vw, 82px);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  font-weight: 900;
+}
+
+/* WORK RESPONSIVE */
+
+@media (max-width: 950px) {
+
+  .work-heading {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .work-feature {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-feature-copy {
+    padding: 30px;
+  }
+
+  .work-card-visual {
+    min-height: 360px;
+  }
+
+}/* =========================================================
+   WHY SABISITE
+   ========================================================= */
+
+.why-section {
+  background: #11110f;
+  color: #f4f0e8;
+}
+
+.why-heading {
+  max-width: 850px;
+  margin-bottom: 80px;
+}
+
+.why-heading .section-label {
+  color: #9aa58f;
+}
+
+.why-heading .section-title {
+  color: #f4f0e8;
+}
+
+.why-intro {
+  max-width: 650px;
+  margin-top: 28px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(244, 240, 232, 0.65);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid rgba(244, 240, 232, 0.14);
+}
+
+.why-card {
+  padding: 42px 38px 48px 0;
+  border-bottom: 1px solid rgba(244, 240, 232, 0.14);
+}
+
+.why-card:nth-child(odd) {
+  padding-right: 70px;
+  border-right: 1px solid rgba(244, 240, 232, 0.14);
+}
+
+.why-card:nth-child(even) {
+  padding-left: 70px;
+}
+
+.why-number {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #9aa58f;
+  margin-bottom: 55px;
+}
+
+.why-card h3 {
+  font-size: 28px;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  letter-spacing: -0.03em;
+}
+
+.why-card p {
+  max-width: 440px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(244, 240, 232, 0.58);
+}
+
+/* WHY RESPONSIVE */
+
+@media (max-width: 750px) {
+
+  .why-heading {
+    margin-bottom: 55px;
+  }
+
+  .why-intro {
+    font-size: 18px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-card,
+  .why-card:nth-child(odd),
+  .why-card:nth-child(even) {
+    padding: 32px 0 38px;
+    border-right: none;
+  }
+
+  .why-number {
+    margin-bottom: 35px;
+  }
+
+  .why-card h3 {
+    font-size: 24px;
+  }
+
+}
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 950px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding-top: 70px;
+      }
+
+      .hero-visual {
+        min-height: 470px;
+      }
+    }
+
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(
+          calc(100% - 30px),
+          var(--max-width)
+        );
+      }
+
+      .site-nav {
+        height: 72px;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+
+      .nav-button {
+        padding: 10px 14px;
+      }
+
+      .hero {
+        min-height: auto;
+
+        padding:
+          65px
+          0
+          80px;
+      }
+
+      .hero h1 {
+        font-size: 58px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        min-height: 360px;
+      }
+
+      .window-one {
+        height: 225px;
+      }
+
+      .window-two {
+        height: 205px;
+        top: 112px;
+      }
+
+      .window-three {
+        height: 170px;
+      }
+
+      .window-title {
+        font-size: 28px;
+        margin-top: 25px;
+      }
+
+      .window-content {
+        padding: 20px;
+      }
+
+      .section {
+        padding: 90px 0;
+      }
+    }
+  /* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-section {
+  background: #f4f0e8;
+}
+
+.process-heading {
+  max-width: 760px;
+  margin-bottom: 80px;
+}
+
+.process-intro {
+  max-width: 620px;
+  margin-top: 28px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(17, 17, 15, 0.62);
+}
+
+.process-list {
+  border-top: 1px solid rgba(17, 17, 15, 0.16);
+}
+
+.process-item {
+  display: grid;
+  grid-template-columns: 90px 1fr 1fr;
+  gap: 40px;
+  padding: 42px 0;
+  border-bottom: 1px solid rgba(17, 17, 15, 0.16);
+  align-items: start;
+}
+
+.process-number {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #6f7d61;
+  padding-top: 5px;
+}
+
+.process-item h3 {
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.process-item p {
+  max-width: 420px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(17, 17, 15, 0.58);
+}
+
+@media (max-width: 750px) {
+  .process-heading {
+    margin-bottom: 55px;
+  }
+
+  .process-intro {
+    font-size: 18px;
+  }
+
+  .process-item {
+    grid-template-columns: 50px 1fr;
+    gap: 20px;
+    padding: 32px 0;
+  }
+
+  .process-item h3 {
+    font-size: 26px;
+  }
+
+  .process-item p {
+    grid-column: 2;
+    margin-top: -5px;
+  }
+}
+/* =========================================================
+   PRICING
+   ========================================================= */
+
+.pricing-section {
+  background: #11110f;
+  color: #f4f0e8;
+}
+
+.pricing-heading {
+  max-width: 760px;
+  margin-bottom: 75px;
+}
+
+.pricing-heading .section-label {
+  color: #9aa58f;
+}
+
+.pricing-heading .section-title {
+  color: #f4f0e8;
+}
+
+.pricing-intro {
+  max-width: 600px;
+  margin-top: 26px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: rgba(244, 240, 232, 0.62);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.price-card {
+  position: relative;
+  padding: 42px;
+  min-height: 470px;
+  border: 1px solid rgba(244, 240, 232, 0.16);
+  display: flex;
+  flex-direction: column;
+}
+
+.price-card.featured {
+  background: #f4f0e8;
+  color: #11110f;
+  border-color: #f4f0e8;
+}
+
+.price-card-label {
+  font-size: 12px;
+  letter-spacing: 0.13em;
+  color: #9aa58f;
+  margin-bottom: 55px;
+}
+
+.price-card.featured .price-card-label {
+  color: #6f7d61;
+}
+
+.price-card h3 {
+  font-size: 34px;
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+}
+
+.price-card-description {
+  max-width: 400px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(244, 240, 232, 0.56);
+}
+
+.price-card.featured .price-card-description {
+  color: rgba(17, 17, 15, 0.58);
+}
+
+.price {
+  margin-top: auto;
+  padding-top: 50px;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.price small {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: rgba(244, 240, 232, 0.42);
+}
+
+.price-card.featured .price small {
+  color: rgba(17, 17, 15, 0.48);
+}
+
+.price-card ul {
+  list-style: none;
+  margin: 35px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.price-card li {
+  font-size: 14px;
+  color: rgba(244, 240, 232, 0.62);
+}
+
+.price-card.featured li {
+  color: rgba(17, 17, 15, 0.62);
+}
+
+.price-card li::before {
+  content: "→";
+  margin-right: 10px;
+  color: #9aa58f;
+}
+
+.pricing-note {
+  margin-top: 28px;
+  font-size: 14px;
+  color: rgba(244, 240, 232, 0.42);
+}
+
+.pricing-secondary {
+  margin-top: 18px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(244, 240, 232, 0.14);
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+}
+
+.pricing-secondary strong {
+  font-size: 18px;
+}
+
+.pricing-secondary span {
+  font-size: 14px;
+  color: rgba(244, 240, 232, 0.5);
+}
+
+/* PRICING RESPONSIVE */
+
+@media (max-width: 750px) {
+
+  .pricing-heading {
+    margin-bottom: 55px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .price-card {
+    min-height: 420px;
+    padding: 32px;
+  }
+
+  .price-card-label {
+    margin-bottom: 40px;
+  }
+
+  .price-card h3 {
+    font-size: 29px;
+  }
+
+  .price {
+    font-size: 40px;
+  }
+
+  .pricing-secondary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+}
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.cta-section {
+  background: #6f7d61;
+  color: #f4f0e8;
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+
+.cta-content {
+  max-width: 1000px;
+}
+
+.cta-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  margin-bottom: 32px;
+  color: rgba(244, 240, 232, 0.72);
+}
+
+.cta-title {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(58px, 8vw, 120px);
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+  font-weight: 600;
+}
+
+.cta-text {
+  max-width: 540px;
+  margin-top: 38px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: rgba(244, 240, 232, 0.76);
+}
+
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 42px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 23px;
+  background: #f4f0e8;
+  color: #11110f;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: #f4f0e8;
+  border: 1px solid rgba(244, 240, 232, 0.42);
+}
+
+/* CTA RESPONSIVE */
+
+@media (max-width: 650px) {
+
+  .cta-section {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .cta-title {
+    font-size: clamp(52px, 15vw, 82px);
+  }
+
+  .cta-text {
+    font-size: 17px;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+}
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  background: #11110f;
+  color: #f4f0e8;
+  padding: 70px 0 32px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  padding-bottom: 70px;
+}
+
+.footer-brand {
+  max-width: 420px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.footer-tagline {
+  max-width: 360px;
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(244, 240, 232, 0.5);
+}
+
+.footer-links {
+  display: flex;
+  gap: 80px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.footer-column-label {
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  color: #9aa58f;
+}
+
+.footer-column a {
+  color: rgba(244, 240, 232, 0.68);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 180ms ease;
+}
+
+.footer-column a:hover {
+  color: #f4f0e8;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(244, 240, 232, 0.13);
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  font-size: 12px;
+  color: rgba(244, 240, 232, 0.38);
+}
+
+/* FOOTER RESPONSIVE */
+
+@media (max-width: 750px) {
+
+  .site-footer {
+    padding-top: 55px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    padding-bottom: 55px;
+  }
+
+  .footer-links {
+    gap: 45px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 25px;
+  }
+
+}
+/* =========================================================
+   SABISITE BRAND + WHATSAPP
+   ========================================================= */
+
+:root {
+  --sabi-green: #7f936d;
+  --sabi-green-dark: #5f704f;
+  --sabi-green-light: #a8b79a;
+  --sabi-cream: #f4f0e8;
+  --sabi-black: #11110f;
+}
+
+/* Stronger brand presence */
+
+.section-label {
+  color: var(--sabi-green-dark);
+}
+
+.nav {
+  border-bottom-color: rgba(17, 17, 15, 0.12);
+}
+
+.nav-cta {
+  background: var(--sabi-green);
+  color: var(--sabi-cream);
+}
+
+.nav-cta:hover {
+  background: var(--sabi-green-dark);
+}
+
+/* Green accent on primary actions */
+
+.hero-button,
+.cta-button {
+  background: var(--sabi-green);
+  color: var(--sabi-cream);
+}
+
+.hero-button:hover,
+.cta-button:hover {
+  background: var(--sabi-green-dark);
+}
+
+/* Dark sections */
+
+.why-section,
+.pricing-section {
+  background: var(--sabi-black);
+}
+
+.why-heading .section-label,
+.pricing-heading .section-label {
+  color: var(--sabi-green-light);
+}
+
+/* Process should feel warmer */
+
+.process-section {
+  background: #e8e2d5;
+}
+
+.process-number {
+  color: var(--sabi-green-dark);
+}
+
+/* =========================================================
+   FLOATING WHATSAPP
+   ========================================================= */
+
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 18px;
+  background: var(--sabi-green);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+  background: var(--sabi-green-dark);
+}
+
+.whatsapp-icon {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+@media (max-width: 650px) {
+
+  .whatsapp-float {
+    right: 16px;
+    bottom: 16px;
+    padding: 13px 15px;
+  }
+
+  .whatsapp-float span:last-child {
+    display: none;
+  }
+
+}
+
+/* =========================================================
+   WORK CATEGORIES
+   ========================================================= */
+
+.work-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 42px 0 64px;
+}
+
+.work-category-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid rgba(17,17,15,0.16);
+  color: #11110f;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all 180ms ease;
+}
+
+.work-category-nav a:hover {
+  background: var(--sabi-green);
+  border-color: var(--sabi-green);
+  color: #fff;
+}
+
+.work-category {
+  margin-top: 72px;
+}
+
+.work-category:first-of-type {
+  margin-top: 0;
+}
+
+.work-category-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(17,17,15,0.12);
+}
+
+.work-category-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.work-category-count {
+  color: rgba(17,17,15,0.5);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.work-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.work-category .work-card {
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .work-category-nav {
+    margin: 30px 0 48px;
+  }
+
+  .work-category {
+    margin-top: 52px;
+  }
+
+  .work-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-category-header {
+    margin-bottom: 18px;
+  }
+}
+
+
+/* =========================================================
+   WHY SABISITE — EDITORIAL REDESIGN
+   ========================================================= */
+
+.why-section {
+  background: var(--sabi-cream) !important;
+  color: var(--sabi-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-section::before {
+  content: "S";
+  position: absolute;
+  right: -40px;
+  top: -100px;
+  font-size: 520px;
+  line-height: 1;
+  font-weight: 800;
+  color: rgba(127,147,109,0.08);
+  pointer-events: none;
+}
+
+.why-heading {
+  position: relative;
+  z-index: 1;
+}
+
+.why-heading .section-label {
+  color: var(--sabi-green-dark) !important;
+}
+
+.why-heading .section-title {
+  max-width: 900px;
+  font-size: clamp(52px, 7vw, 96px);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+  margin-bottom: 28px;
+}
+
+.why-heading::after {
+  content: "DESIGNED WITH INTENT.";
+  display: block;
+  color: var(--sabi-green-dark);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-top: 34px;
+}
+
+.why-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  margin-top: 76px;
+  background: rgba(17,17,15,0.12);
+  border: 1px solid rgba(17,17,15,0.12);
+}
+
+.why-card {
+  position: relative;
+  min-height: 300px;
+  padding: 38px;
+  background: var(--sabi-cream);
+  overflow: hidden;
+  transition: transform 220ms ease, background 220ms ease;
+}
+
+.why-card:hover {
+  background: #fffdf8;
+}
+
+.why-card-number {
+  font-size: 72px;
+  line-height: 0.8;
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  color: var(--sabi-green);
+  margin-bottom: 80px;
+}
+
+.why-card h3 {
+  max-width: 420px;
+  margin: 0 0 14px;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.why-card p {
+  max-width: 460px;
+  margin: 0;
+  color: rgba(17,17,15,0.62);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.why-card::after {
+  content: "↗";
+  position: absolute;
+  right: 32px;
+  bottom: 30px;
+  font-size: 24px;
+  color: var(--sabi-green-dark);
+  transition: transform 180ms ease;
+}
+
+.why-card:hover::after {
+  transform: translate(4px, -4px);
+}
+
+@media (max-width: 700px) {
+  .why-section::before {
+    font-size: 300px;
+    right: -30px;
+    top: -30px;
+  }
+
+  .why-heading .section-title {
+    font-size: clamp(48px, 14vw, 72px);
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+    margin-top: 52px;
+  }
+
+  .why-card {
+    min-height: 270px;
+    padding: 30px;
+  }
+
+  .why-card-number {
+    font-size: 58px;
+    margin-bottom: 64px;
+  }
+}
+
+
+/* =========================================================
+   PRICING — FOUR EQUAL OFFERS
+   ========================================================= */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 58px;
+}
+
+.price-card {
+  position: relative;
+  min-height: 510px;
+  padding: 34px;
+  background: #1b1b18;
+  border: 1px solid rgba(244,240,232,0.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+
+.price-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(127,147,109,0.7);
+}
+
+.price-card-featured {
+  background: var(--sabi-green);
+  border-color: var(--sabi-green);
+}
+
+.price-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 46px;
+}
+
+.price-number {
+  font-size: 12px;
+  color: rgba(244,240,232,0.45);
+  font-weight: 600;
+}
+
+.price-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  color: var(--sabi-green-light);
+}
+
+.price-card-featured .price-label,
+.price-card-featured .price-number {
+  color: rgba(255,255,255,0.8);
+}
+
+.price-badge {
+  position: absolute;
+  top: 31px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 7px 11px;
+  background: var(--sabi-cream);
+  color: var(--sabi-black);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.price-card h3 {
+  margin: 0;
+  color: var(--sabi-cream);
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.price-card-featured h3 {
+  color: #fff;
+}
+
+.price-from {
+  font-size: 0.55em;
+  vertical-align: top;
+  margin-left: 3px;
+}
+
+.price-period {
+  display: inline-block;
+  margin-left: 7px;
+  font-size: 0.28em;
+  letter-spacing: 0;
+  color: rgba(244,240,232,0.6);
+}
+
+.price-description {
+  max-width: 430px;
+  margin: 20px 0 0;
+  color: rgba(244,240,232,0.58);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.price-card-featured .price-description {
+  color: rgba(255,255,255,0.78);
+}
+
+.price-divider {
+  height: 1px;
+  margin: 28px 0 22px;
+  background: rgba(244,240,232,0.12);
+}
+
+.price-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 11px;
+}
+
+.price-card li {
+  color: rgba(244,240,232,0.72);
+  font-size: 13px;
+}
+
+.price-card li::before {
+  content: "✓";
+  margin-right: 9px;
+  color: var(--sabi-green-light);
+}
+
+.price-card-featured li {
+  color: rgba(255,255,255,0.88);
+}
+
+.price-card-featured li::before {
+  color: #fff;
+}
+
+.price-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  min-height: 48px;
+  padding: 0 18px;
+  background: var(--sabi-green);
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.price-button:hover {
+  background: var(--sabi-green-dark);
+  transform: translateY(-2px);
+}
+
+.price-card-featured .price-button {
+  background: var(--sabi-cream);
+  color: var(--sabi-black);
+}
+
+.price-card-featured .price-button:hover {
+  background: #fff;
+}
+
+.pricing-note {
+  margin-top: 28px;
+  color: rgba(244,240,232,0.48);
+  font-size: 13px;
+}
+
+.pricing-note a {
+  color: var(--sabi-green-light);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 42px;
+  }
+
+  .price-card {
+    min-height: 470px;
+    padding: 28px;
+  }
+
+  .price-top {
+    margin-bottom: 38px;
+  }
+
+  .price-card h3 {
+    font-size: 48px;
+  }
+}
+
+
+/* =========================================================
+   SABISITE — FINAL PRICING OVERRIDES
+   ========================================================= */
+
+.pricing-section {
+  background: var(--sabi-black) !important;
+}
+
+.pricing-heading .section-label {
+  color: var(--sabi-green-light) !important;
+}
+
+.pricing-heading .section-title {
+  color: var(--sabi-cream);
+}
+
+.pricing-heading p {
+  color: rgba(244,240,232,0.58);
+}
+
+.pricing-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  margin-top: 58px !important;
+}
+
+.price-card {
+  min-height: 510px !important;
+  padding: 34px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.price-card h3 {
+  color: var(--sabi-cream);
+}
+
+.price-card-featured {
+  background: var(--sabi-green) !important;
+}
+
+.price-card-featured h3 {
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .price-card {
+    min-height: 470px !important;
+  }
+}
+
+
+/* =========================================================
+   SABISITE — MOBILE POLISH
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .work-heading {
+    gap: 24px;
+  }
+
+  .work-category-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .work-category-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .work-category-nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .work-category-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .why-card {
+    min-height: 250px;
+  }
+
+  .price-card {
+    min-height: auto !important;
+  }
+
+  .price-card .price-button {
+    margin-top: 32px;
+  }
+
+  .whatsapp-float {
+    border-radius: 999px;
+    padding: 14px 17px;
+  }
+
+}
+
+
+/* =========================================================
+   SABISITE — DEEP GREEN + GOLD BRAND SYSTEM
+   ========================================================= */
+
+:root {
+  --sabi-green: #12372A;
+  --sabi-green-dark: #0B281E;
+  --sabi-green-light: #315743;
+  --sabi-gold: #C6A15B;
+  --sabi-gold-light: #D9BD7D;
+  --sabi-cream: #F4EFE4;
+  --sabi-sand: #E7DDC9;
+  --sabi-black: #11110F;
+}
+
+/* PRIMARY BRAND SURFACES */
+
+.nav {
+  background: var(--sabi-cream) !important;
+  border-bottom-color: rgba(18,55,42,0.18) !important;
+}
+
+.nav-cta {
+  background: var(--sabi-green) !important;
+  color: var(--sabi-cream) !important;
+}
+
+.nav-cta:hover {
+  background: var(--sabi-green-dark) !important;
+}
+
+.hero {
+  background: var(--sabi-cream) !important;
+}
+
+.hero-button,
+.cta-button {
+  background: var(--sabi-green) !important;
+  color: var(--sabi-cream) !important;
+}
+
+.hero-button:hover,
+.cta-button:hover {
+  background: var(--sabi-green-dark) !important;
+}
+
+/* SECTION LABELS */
+
+.section-label {
+  color: var(--sabi-gold) !important;
+}
+
+/* WHY */
+
+.why-section {
+  background: var(--sabi-green) !important;
+  color: var(--sabi-cream) !important;
+}
+
+.why-section::before {
+  color: rgba(198,161,91,0.09) !important;
+}
+
+.why-heading .section-label {
+  color: var(--sabi-gold) !important;
+}
+
+.why-heading .section-title {
+  color: var(--sabi-cream) !important;
+}
+
+.why-heading::after {
+  color: var(--sabi-gold) !important;
+}
+
+.why-grid {
+  background: rgba(198,161,91,0.25) !important;
+  border-color: rgba(198,161,91,0.25) !important;
+}
+
+.why-card {
+  background: var(--sabi-cream) !important;
+  color: var(--sabi-black) !important;
+}
+
+.why-card:hover {
+  background: #fffaf0 !important;
+}
+
+.why-card-number {
+  color: var(--sabi-gold) !important;
+}
+
+.why-card::after {
+  color: var(--sabi-green) !important;
+}
+
+/* PROCESS / HOW IT WORKS */
+
+.process-section {
+  background: var(--sabi-sand) !important;
+}
+
+.process-section .section-label {
+  color: var(--sabi-green) !important;
+}
+
+.process-section .section-title {
+  color: var(--sabi-green) !important;
+}
+
+.process-number {
+  color: var(--sabi-gold) !important;
+}
+
+.process-step {
+  border-color: rgba(18,55,42,0.18) !important;
+}
+
+.process-step h3 {
+  color: var(--sabi-green) !important;
+}
+
+.process-step p {
+  color: rgba(17,17,15,0.62) !important;
+}
+
+/* PRICING */
+
+.pricing-section {
+  background: var(--sabi-green) !important;
+}
+
+.pricing-heading .section-label {
+  color: var(--sabi-gold) !important;
+}
+
+.pricing-heading .section-title {
+  color: var(--sabi-cream) !important;
+}
+
+.price-card {
+  background: var(--sabi-green-dark) !important;
+  border-color: rgba(198,161,91,0.25) !important;
+}
+
+.price-card-featured {
+  background: var(--sabi-gold) !important;
+  border-color: var(--sabi-gold) !important;
+}
+
+.price-label {
+  color: var(--sabi-gold-light) !important;
+}
+
+.price-card-featured .price-label {
+  color: var(--sabi-green-dark) !important;
+}
+
+.price-card-featured .price-button {
+  background: var(--sabi-green) !important;
+  color: var(--sabi-cream) !important;
+}
+
+/* FINAL CTA */
+
+.cta-section {
+  background: var(--sabi-gold) !important;
+  color: var(--sabi-green-dark) !important;
+}
+
+.cta-section .section-label {
+  color: var(--sabi-green-dark) !important;
+}
+
+.cta-section .section-title {
+  color: var(--sabi-green-dark) !important;
+}
+
+.cta-section .cta-button {
+  background: var(--sabi-green) !important;
+  color: var(--sabi-cream) !important;
+}
+
+/* WHATSAPP */
+
+.whatsapp-float {
+  background: var(--sabi-green) !important;
+  color: var(--sabi-cream) !important;
+  border: 1px solid var(--sabi-gold) !important;
+}
+
+.whatsapp-float:hover {
+  background: var(--sabi-green-dark) !important;
+}
+
+.whatsapp-icon {
+  border-color: var(--sabi-gold-light) !important;
+}
+
+/* FOOTER */
+
+.footer {
+  background: var(--sabi-green-dark) !important;
+  color: var(--sabi-cream) !important;
+}
+
+.footer a:hover {
+  color: var(--sabi-gold) !important;
+}
+
+
+/* =========================================================
+   SABISITE — GLOBAL GREEN BACKGROUNDS
+   ========================================================= */
+
+:root {
+  --sabi-green: #12372A;
+  --sabi-green-dark: #0B281E;
+  --sabi-gold: #C6A15B;
+  --sabi-gold-light: #D9BD7D;
+  --sabi-cream: #F4EFE4;
+  --sabi-sand: #E7DDC9;
+  --sabi-black: #11110F;
+}
+
+/* Every major dark/black section becomes Sabi green */
+
+.why-section,
+.pricing-section,
+.footer {
+  background: var(--sabi-green) !important;
+}
+
+/* Any generic dark sections/backgrounds */
+
+section[style*="background:#111"],
+section[style*="background: #111"],
+section[style*="background:#000"],
+section[style*="background: #000"],
+section[style*="background:black"],
+section[style*="background: black"] {
+  background: var(--sabi-green) !important;
+}
+
+/* Dark cards stay slightly darker green so there is still hierarchy */
+
+.price-card {
+  background: var(--sabi-green-dark) !important;
+}
+
+.price-card-featured {
+  background: var(--sabi-gold) !important;
+}
+
+/* Dark visual/project areas */
+
+.work-visual,
+.browser-frame {
+  background: var(--sabi-green) !important;
+}
+
+/* Gold becomes the primary accent against green */
+
+.section-label {
+  color: var(--sabi-gold) !important;
+}
+
+.process-number,
+.why-card-number {
+  color: var(--sabi-gold) !important;
+}
+
+/* Green buttons remain green-dark on hover */
+
+.hero-button:hover,
+.cta-button:hover,
+.nav-cta:hover,
+.price-button:hover {
+  background: var(--sabi-green-dark) !important;
+}
+
+/* Make the final CTA gold against the green system */
+
+.cta-section {
+  background: var(--sabi-gold) !important;
+}
+
+
+/* =========================================================
+   SABISITE — STRICT GREEN + GOLD SYSTEM
+   NO CREAM. NO SAND. NO BLACK.
+   ========================================================= */
+
+:root {
+  --sabi-green: #12372A;
+  --sabi-green-dark: #0B281E;
+  --sabi-gold: #C6A15B;
+  --sabi-gold-light: #D9BD7D;
+
+  /* Override legacy variables */
+  --sabi-cream: #12372A;
+  --sabi-sand: #12372A;
+  --sabi-black: #12372A;
+}
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html,
+body {
+  background: var(--sabi-green) !important;
+  color: var(--sabi-gold) !important;
+}
+
+/* =========================================================
+   ALL MAJOR SECTIONS
+   ========================================================= */
+
+.nav,
+.hero,
+.positioning-section,
+.services-section,
+.work-section,
+.why-section,
+.process-section,
+.pricing-section,
+.cta-section,
+.footer {
+  background: var(--sabi-green) !important;
+  color: var(--sabi-gold) !important;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.section-title,
+.work-intro {
+  color: var(--sabi-gold);
+}
+
+.section-label {
+  color: var(--sabi-gold-light) !important;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav {
+  border-bottom-color: rgba(198,161,91,0.25) !important;
+}
+
+.nav a {
+  color: var(--sabi-gold) !important;
+}
+
+.nav-cta {
+  background: var(--sabi-gold) !important;
+  color: var(--sabi-green-dark) !important;
+}
+
+.nav-cta:hover {
+  background: var(--sabi-gold-light) !important;
+  color: var(--sabi-green-dark) !important;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero-button,
+.cta-button {
+  background: var(--sabi-gold) !important;
+  color: var(--sabi-green-dark) !important;
+}
+
+.hero-button:hover,
+.cta-button:hover {
+  background: var(--sabi-gold-light) !important;
+}
+
+/* =========================================================
+   WORK
+   ========================================================= */
+
+.work-category-header {
+  border-bottom-color: rgba(198,161,91,0.3) !important;
+}
+
+.work-category-title,
+.work-category-count {
+  color: var(--sabi-gold) !important;
+}
+
+.work-category-nav a {
+  color: var(--sabi-gold) !important;
+  border-color: rgba(198,161,91,0.35) !important;
+  background: transparent !important;
+}
+
+.work-category-nav a:hover {
+  background: var(--sabi-gold) !important;
+  color: var(--sabi-green-dark) !important;
+  border-color: var(--sabi-gold) !important;
+}
+
+.work-card {
+  background: var(--sabi-green-dark) !important;
+  border-color: rgba(198,161,91,0.25) !important;
+}
+
+.work-card-info,
+.work-card-info h3,
+.work-card-info p,
+.work-meta,
+.work-tags {
+  color: var(--sabi-gold) !important;
+}
+
+/* =========================================================
+   WHY SABISITE
+   ========================================================= */
+
+.why-section {
+  background: var(--sabi-green-dark) !important;
+}
+
+.why-card {
+  background: var(--sabi-green) !important;
+  border-color: rgba(198,161,91,0.3) !important;
+}
+
+.why-card h3,
+.why-card p {
+  color: var(--sabi-gold) !important;
+}
+
+.why-card-number {
+  color: var(--sabi-gold) !important;
+}
+
+.why-card::after {
+  color: var(--sabi-gold) !important;
+}
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.process-section {
+  background: var(--sabi-green) !important;
+}
+
+.process-step {
+  border-color: rgba(198,161,91,0.3) !important;
+}
+
+.process-number {
+  color: var(--sabi-gold) !important;
+}
+
+.process-step h3,
+.process-step p {
+  color: var(--sabi-gold) !important;
+}
+
+/* =========================================================
+   PRICING
+   ========================================================= */
+
+.pricing-section {
+  background: var(--sabi-green-dark) !important;
+}
+
+.price-card {
+  background: var(--sabi-green) !important;
+  border-color: rgba(198,161,91,0.3) !important;
+}
+
+.price-card-featured {
+  background: var(--sabi-gold) !important;
+  color: var(--sabi-green-dark) !important;
+}
+
+.price-card-featured h3,
+.price-card-featured p,
+.price-card-featured li,
+.price-card-featured .price-label,
+.price-card-featured .price-number {
+  color: var(--sabi-green-dark) !important;
+}
+
+.price-button {
+  background: var(--sabi-gold) !important;
+  color: var(--sabi-green-dark) !important;
+}
+
+.price-button:hover {
+  background: var(--sabi-gold-light) !important;
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.cta-section {
+  background: var(--sabi-gold) !important;
+}
+
+.cta-section .section-label,
+.cta-section .section-title,
+.cta-section p {
+  color: var(--sabi-green-dark) !important;
+}
+
+.cta-section .cta-button {
+  background: var(--sabi-green-dark) !important;
+  color: var(--sabi-gold) !important;
+}
+
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
+
+.whatsapp-float {
+  background: var(--sabi-gold) !important;
+  color: var(--sabi-green-dark) !important;
+  border-color: var(--sabi-green-dark) !important;
+}
+
+.whatsapp-float:hover {
+  background: var(--sabi-gold-light) !important;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  background: var(--sabi-green-dark) !important;
+}
+
+.footer,
+.footer a,
+.footer p {
+  color: var(--sabi-gold) !important;
+}
+
+.footer a:hover {
+  color: var(--sabi-gold-light) !important;
+}
+
+/* =========================================================
+   REMOVE LEGACY DARK / LIGHT SURFACES
+   ========================================================= */
+
+.browser-frame,
+.work-visual,
+.haven-preview,
+.work-card-visual {
+  background: var(--sabi-green-dark) !important;
+}
+
+:root {
+  --gold: #E2B84B !important;
+  --gold-light: #F0C75E !important;
+  --green: #12372A !important;
+  --green-dark: #0B281E !important;
+}
+
+body {
+  background: #12372A !important;
+  color: #F0C75E !important;
+}
+
+h1, h2, h3, h4,
+.section-title,
+.work-category-title,
+.why-title,
+.process-title {
+  color: #F0C75E !important;
+}
+
+.eyebrow,
+.work-category-count,
+.process-number,
+.pricing-number,
+.why-number {
+  color: #E2B84B !important;
+}
+
+a,
+.nav-logo,
+.nav-links a {
+  color: #F0C75E !important;
+}
+
+.btn-primary,
+.hero-cta,
+.cta-primary,
+.nav-cta {
+  background: #F0C75E !important;
+  color: #0B281E !important;
+  border-color: #F0C75E !important;
+}
+
+.btn-primary:hover,
+.hero-cta:hover,
+.cta-primary:hover,
+.nav-cta:hover {
+  background: #E2B84B !important;
+  color: #0B281E !important;
+}
+
+.work-section,
+.services-section,
+.process-section,
+.pricing-section,
+.why-section {
+  background: #12372A !important;
+}
+
+.work-card,
+.service-card,
+.process-card,
+.why-card,
+.pricing-card {
+  background: #0B281E !important;
+  border-color: rgba(226, 184, 75, 0.45) !important;
+}
+
+.pricing-card.featured {
+  background: #E2B84B !important;
+  color: #0B281E !important;
+}
+
+.pricing-card.featured h3,
+.pricing-card.featured .price,
+.pricing-card.featured p,
+.pricing-card.featured span {
+  color: #0B281E !important;
+}
+
+.final-cta {
+  background: #F0C75E !important;
+  color: #0B281E !important;
+}
+
+.final-cta h2,
+.final-cta p {
+  color: #0B281E !important;
+}
+
+.whatsapp-float {
+  background: #F0C75E !important;
+  color: #0B281E !important;
+}
+
+footer {
+  background: #0B281E !important;
+  color: #F0C75E !important;
+  border-color: rgba(226, 184, 75, 0.4) !important;
+}
+/* SABISITE_WORK_EXPAND_PATCH */
+
+.work-category-grid:not(.is-expanded) > :nth-child(n+3) {
+  display: none;
+}
+
+.work-category-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 28px;
+  padding: 16px 22px;
+  border: 1px solid rgba(240, 199, 94, 0.55);
+  background: transparent;
+  color: #F0C75E;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.work-category-expand:hover {
+  background: #F0C75E;
+  color: #0B281E;
+  border-color: #F0C75E;
+}
+
+.work-category-expand .expand-icon {
+  font-size: 17px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.work-category-expand.is-open .expand-icon {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 700px) {
+  .work-category-grid:not(.is-expanded) > :nth-child(n+3) {
+    display: none;
+  }
+
+  .work-category-expand {
+    margin-top: 20px;
+    padding: 14px 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       NAVIGATION
+       ======================================================= -->
+
+  <header class="container site-nav">
+
+    <a
+      href="#"
+      class="logo"
+    >
+      SABISITE
+    </a>
+
+    <nav class="nav-links">
+
+      <a href="#work">
+        Work
+      </a>
+
+      <a href="#services">
+        Services
+      </a>
+
+      <a href="#process">
+        Process
+      </a>
+
+      <a href="#pricing">
+        Pricing
+      </a>
+
+      <a href="#about">
+        About
+      </a>
+
+    </nav>
+
+    <a
+      href="https://wa.me/2347047426376"
+      target="_blank"
+      rel="noopener"
+      class="nav-button"
+    >
+      Start a project â†’
+    </a>
+
+  </header>
+
+
+  <!-- =======================================================
+       HERO
+       ======================================================= -->
+
+  <main>
+
+    <section class="container hero">
+
+      <div class="hero-copy-block">
+
+        <div class="eyebrow">
+          SABISITE â€” DIGITAL STUDIO
+        </div>
+
+        <h1>
+          Your business deserves a better website.
+        </h1>
+
+        <p class="hero-copy">
+          We design and build modern websites for ambitious
+          businesses, brands and professionals.
+          <strong>
+            AI-assisted. Human-directed. Built around your business.
+          </strong>
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="https://wa.me/2347047426376"
+            target="_blank"
+            rel="noopener"
+            class="button button-primary"
+          >
+            Start a project â†’
+          </a>
+
+          <a
+            href="#work"
+            class="button button-secondary"
+          >
+            See our work â†“
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT COLLAGE -->
+
+      <div class="hero-visual">
+
+        <div class="project-window window-one">
+
+          <div class="window-top">
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+          </div>
+
+          <div class="window-content">
+
+            <span class="window-label">
+              VANGA
+            </span>
+
+            <div class="window-title">
+              Built to look the part.
+            </div>
+
+            <div class="window-line"></div>
+            <div class="window-line-small"></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project-window window-two">
+
+          <div class="window-top">
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+          </div>
+
+          <div class="window-content">
+
+            <span class="window-label">
+              SABISOLE
+            </span>
+
+            <div class="window-title">
+              Shop the collection.
+            </div>
+
+            <div class="window-line"></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project-window window-three">
+
+          <div class="window-top">
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+          </div>
+
+          <div class="window-content">
+
+            <span class="window-label">
+              PRECIOUS FREEMAN
+            </span>
+
+            <div class="window-title">
+              A personal brand, online.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+   <!-- =====================================================
+     POSITIONING
+     ===================================================== -->
+
+<section class="section" id="about">
+
+  <div class="container">
+
+    <div class="positioning">
+
+      <div class="positioning-main">
+
+        <div class="section-label">
+          THE IDEA
+        </div>
+
+        <h2 class="section-title">
+          We don't just make websites.
+          <br />
+          We make businesses look like
+          they belong online.
+        </h2>
+
+      </div>
+
+      <div class="positioning-copy">
+
+        <p>
+          A strong website should communicate quickly,
+          build trust immediately and give people a reason
+          to take the next step.
+        </p>
+
+        <p>
+          That's what we build.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- THREE PRINCIPLES -->
+
+    <div class="principles">
+
+      <article class="principle">
+
+        <span class="principle-number">
+          01
+        </span>
+
+        <div class="principle-content">
+
+          <h3>
+            Strategy
+          </h3>
+
+          <p>
+            We start with what the website needs
+            to accomplish â€” not with a template.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="principle">
+
+        <span class="principle-number">
+          02
+        </span>
+
+        <div class="principle-content">
+
+          <h3>
+            Design
+          </h3>
+
+          <p>
+            Strong typography, clear hierarchy
+            and a visual identity people remember.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="principle">
+
+        <span class="principle-number">
+          03
+        </span>
+
+        <div class="principle-content">
+
+          <h3>
+            Technology
+          </h3>
+
+          <p>
+            AI-assisted workflows help us move
+            quickly while creative direction stays human.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES
+     ===================================================== -->
+
+<section class="section" id="services">
+
+  <div class="container">
+
+    <div class="services-heading">
+
+      <div>
+
+        <div class="section-label">
+          WHAT WE BUILD
+        </div>
+
+        <h2 class="section-title">
+          Websites with
+          <br />
+          a job to do.
+        </h2>
+
+      </div>
+
+      <p class="services-intro">
+        From your first impression to the final click,
+        every page should have a purpose.
+      </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+      <!-- SERVICE 01 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            01
+          </span>
+
+          <span class="service-arrow">
+            â†—
+          </span>
+
+        </div>
+
+        <div class="service-body">
+
+          <h3>
+            Business
+            <br />
+            Websites
+          </h3>
+
+          <p>
+            Professional digital homes for companies
+            ready to look the part.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- SERVICE 02 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            02
+          </span>
+
+          <span class="service-arrow">
+            â†—
+          </span>
+
+        </div>
+
+        <div class="service-body">
+
+          <h3>
+            E-commerce
+          </h3>
+
+          <p>
+            Online stores designed around discovery,
+            trust and conversion.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- SERVICE 03 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            03
+          </span>
+
+          <span class="service-arrow">
+            â†—
+          </span>
+
+        </div>
+
+        <div class="service-body">
+
+          <h3>
+            Personal
+            <br />
+            Brands
+          </h3>
+
+          <p>
+            Portfolios and digital identities built
+            around people and their work.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- SERVICE 04 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            04
+          </span>
+
+          <span class="service-arrow">
+            â†—
+          </span>
+
+        </div>
+
+        <div class="service-body">
+
+          <h3>
+            Landing
+            <br />
+            Pages
+          </h3>
+
+          <p>
+            Focused pages built around one clear
+            audience and one clear objective.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+</section>
+
+
+<!-- =====================================================
+     SELECTED WORK
+     ===================================================== -->
+
+<section class="section work-section" id="work">
+  <div class="container">
+
+    <div class="work-heading">
+      <div>
+        <div class="section-label">SELECTED WORK</div>
+        <h2 class="section-title">Different businesses.<br />One standard.</h2>
+      </div>
+
+      <p class="work-intro">
+        From personal brands to e-commerce, property and
+        automotive, every project is designed around the
+        business — not the other way around.
+      </p>
+    </div>
+
+    <!-- FEATURED PROJECT -->
+
+    <article class="work-feature">
+
+      <div class="work-visual work-visual-haven">
+
+        <div class="browser-frame">
+
+          <div class="browser-top">
+
+            <div class="browser-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div class="browser-address">
+              haven
+            </div>
+
+          </div>
+
+          <div class="haven-preview">
+
+            <div class="haven-nav">
+              <strong>HAVEN</strong>
+              <span>Properties</span>
+              <span>About</span>
+              <span>Contact</span>
+            </div>
+
+            <div class="haven-content">
+
+              <span>
+                FIND YOUR PLACE
+              </span>
+
+              <h3>
+                A better way
+                <br />
+                to come home.
+              </h3>
+
+              <div class="haven-button">
+                Explore properties â†’
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="work-feature-copy">
+
+        <div class="work-meta">
+          <span>01</span>
+          <span>REAL ESTATE</span>
+        </div>
+
+        <h3>
+          Haven
+        </h3>
+
+        <p>
+          A premium real-estate experience designed
+          to make property discovery feel effortless,
+          modern and aspirational.
+        </p>
+
+        <div class="work-tags">
+          <span>Strategy</span>
+          <span>Design</span>
+          <span>Development</span>
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- WORK CATEGORY NAV -->
+
+    <nav class="work-category-nav" aria-label="Work categories">
+      <a href="#business-brands">Business &amp; Brands</a>
+      <a href="#ecommerce">E-commerce</a>
+      <a href="#personal-creative">Personal &amp; Creative</a>
+      <a href="#property-hospitality">Property &amp; Hospitality</a>
+      <a href="#automotive">Automotive</a>
+      <a href="#digital">Digital</a>
+    </nav>
+
+    <!-- BUSINESS & BRANDS -->
+
+    <div class="work-category" id="business-brands">
+      <div class="work-category-header">
+        <h3 class="work-category-title">Business &amp; Brands</h3>
+        <span class="work-category-count">04 PROJECTS</span>
+      </div>
+
+      <div class="work-category-grid">
+        <article class="work-card">
+
+        <div class="work-card-visual vanga-preview">
+
+          <div class="mini-brand">
+            VANGA
+          </div>
+
+          <div class="mini-fashion">
+            <span>NEW</span>
+            <strong>
+              YOUR
+              <br />
+              WORLD.
+            </strong>
+          </div>
+
+          <div class="mini-line"></div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>02</span>
+            <span>BRAND / BUSINESS</span>
+          </div>
+
+          <h3>
+            Vanga
+          </h3>
+
+        </div>
+
+      </article>
+        <article class="work-card">
+
+        <div class="work-card-visual kora-preview">
+
+          <div class="kora-mark">
+            KORA
+          </div>
+
+          <div class="kora-title">
+            MADE
+            <br />
+            WITH
+            <br />
+            INTENTION.
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>05</span>
+            <span>BRAND / BUSINESS</span>
+          </div>
+
+          <h3>
+            Kora
+          </h3>
+
+        </div>
+
+      </article>
+        <article class="work-card">
+
+        <div class="work-card-visual aurelia-preview">
+
+          <div class="aurelia-brand">
+            AURELIA
+          </div>
+
+          <div class="aurelia-title">
+            BEAUTY
+            <br />
+            IN DETAIL.
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>07</span>
+            <span>BEAUTY / BRAND</span>
+          </div>
+
+          <h3>
+            Aurelia
+          </h3>
+
+        </div>
+
+      </article>
+        <article class="work-card">
+
+        <div class="work-card-visual atlas-preview">
+
+          <div class="atlas-top">
+            ATLAS MOTORS
+          </div>
+
+          <div class="atlas-car">
+            <div class="car-roof"></div>
+            <div class="car-body"></div>
+            <div class="car-wheel left"></div>
+            <div class="car-wheel right"></div>
+          </div>
+
+          <div class="atlas-bottom">
+            DISCOVER YOUR NEXT CAR â†’
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>09</span>
+            <span>AUTOMOTIVE</span>
+          </div>
+
+          <h3>
+            Atlas Motors
+          </h3>
+
+        </div>
+
+      </article>
+      </div>
+    </div>
+
+    <!-- E-COMMERCE -->
+
+    <div class="work-category" id="ecommerce">
+      <div class="work-category-header">
+        <h3 class="work-category-title">E-commerce</h3>
+        <span class="work-category-count">01 PROJECT</span>
+      </div>
+
+      <div class="work-category-grid single-project">
+        <article class="work-card">
+
+        <div class="work-card-visual sabisole-preview">
+
+          <div class="mini-brand">
+            SABISOLE
+          </div>
+
+          <div class="shoe-shape">
+            <div class="shoe-upper"></div>
+            <div class="shoe-sole"></div>
+          </div>
+
+          <div class="mini-shop">
+            SHOP NOW â†—
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>03</span>
+            <span>E-COMMERCE</span>
+          </div>
+
+          <h3>
+            SabiSole
+          </h3>
+
+        </div>
+
+      </article>
+      </div>
+    </div>
+
+    <!-- PERSONAL & CREATIVE -->
+
+    <div class="work-category" id="personal-creative">
+      <div class="work-category-header">
+        <h3 class="work-category-title">Personal &amp; Creative</h3>
+        <span class="work-category-count">01 PROJECT</span>
+      </div>
+
+      <div class="work-category-grid single-project">
+        <article class="work-card">
+
+        <div class="work-card-visual precious-preview">
+
+          <div class="precious-name">
+            PRECIOUS
+            <br />
+            FREEMAN
+          </div>
+
+          <div class="precious-circle"></div>
+
+          <div class="precious-caption">
+            MODEL / CREATIVE
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>04</span>
+            <span>PERSONAL BRAND</span>
+          </div>
+
+          <h3>
+            Precious Freeman
+          </h3>
+
+        </div>
+
+      </article>
+      </div>
+    </div>
+
+    <!-- PROPERTY & HOSPITALITY -->
+
+    <div class="work-category" id="property-hospitality">
+      <div class="work-category-header">
+        <h3 class="work-category-title">Property &amp; Hospitality</h3>
+        <span class="work-category-count">02 PROJECTS</span>
+      </div>
+
+      <div class="work-category-grid">
+        <article class="work-card">
+
+        <div class="work-card-visual lagosstay-preview">
+
+          <div class="stay-top">
+            LAGOSSTAY
+          </div>
+
+          <div class="stay-title">
+            STAY
+            <br />
+            DIFFERENT.
+          </div>
+
+          <div class="stay-location">
+            LAGOS, NIGERIA
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>06</span>
+            <span>HOSPITALITY</span>
+          </div>
+
+          <h3>
+            LagosStay
+          </h3>
+
+        </div>
+
+      </article>
+      </div>
+    </div>
+
+    <!-- AUTOMOTIVE -->
+
+    <div class="work-category" id="automotive">
+      <div class="work-category-header">
+        <h3 class="work-category-title">Automotive</h3>
+        <span class="work-category-count">01 PROJECT</span>
+      </div>
+
+      <div class="work-category-grid single-project">
+        <article class="work-card">
+
+        <div class="work-card-visual atlas-preview">
+
+          <div class="atlas-top">
+            ATLAS MOTORS
+          </div>
+
+          <div class="atlas-car">
+            <div class="car-roof"></div>
+            <div class="car-body"></div>
+            <div class="car-wheel left"></div>
+            <div class="car-wheel right"></div>
+          </div>
+
+          <div class="atlas-bottom">
+            DISCOVER YOUR NEXT CAR â†’
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>09</span>
+            <span>AUTOMOTIVE</span>
+          </div>
+
+          <h3>
+            Atlas Motors
+          </h3>
+
+        </div>
+
+      </article>
+      </div>
+    </div>
+
+    <!-- DIGITAL -->
+
+    <div class="work-category" id="digital">
+      <div class="work-category-header">
+        <h3 class="work-category-title">Digital</h3>
+        <span class="work-category-count">01 PROJECT</span>
+      </div>
+
+      <div class="work-category-grid single-project">
+        <article class="work-card">
+
+        <div class="work-card-visual sabisite-preview">
+
+          <div class="sabisite-symbol">
+            S
+          </div>
+
+          <div class="sabisite-title">
+            SABISITE
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>10</span>
+            <span>DIGITAL STUDIO</span>
+          </div>
+
+          <h3>
+            SabiSite
+          </h3>
+
+        </div>
+
+      </article>
+      </div>
+    </div>
+
+  </div>
+</section>
+</section>
+
+<!-- =====================================================
+     WHY SABISITE
+     ===================================================== -->
+
+<section class="section why-section" id="why">
+
+  <div class="container">
+
+    <div class="why-heading">
+
+      <div class="section-label">
+        WHY SABISITE
+      </div>
+
+      <h2 class="section-title">
+        Not another
+        <br />
+        website factory.
+      </h2>
+
+      <p class="why-intro">
+        We use modern tools, including AI, to move faster â€”
+        but every website is still shaped around the business,
+        the audience and the result it needs to achieve.
+      </p>
+
+    </div>
+
+    <div class="why-grid">
+
+      <article class="why-card">
+
+        <div class="why-number">
+          01 â€” AI-ASSISTED
+        </div>
+
+        <h3>
+          Faster without
+          cutting corners.
+        </h3>
+
+        <p>
+          AI helps us research, explore ideas, write,
+          prototype and build faster. That means more
+          time goes into the things that actually matter:
+          design, strategy and refinement.
+        </p>
+
+      </article>
+
+      <article class="why-card">
+
+        <div class="why-number">
+          02 â€” HUMAN-DIRECTED
+        </div>
+
+        <h3>
+          Technology doesn't
+          replace taste.
+        </h3>
+
+        <p>
+          We direct the process from start to finish.
+          The structure, visual language, content and
+          final decisions are built around your business â€”
+          not generated from a template.
+        </p>
+
+      </article>
+
+      <article class="why-card">
+
+        <div class="why-number">
+          03 â€” BUSINESS-FIRST
+        </div>
+
+        <h3>
+          Built for what
+          your business needs.
+        </h3>
+
+        <p>
+          A website should do more than look good.
+          It should explain what you do, build trust,
+          make it easy to take action and give your
+          business a stronger digital presence.
+        </p>
+
+      </article>
+
+      <article class="why-card">
+
+        <div class="why-number">
+          04 â€” ACCESSIBLE
+        </div>
+
+        <h3>
+          Premium doesn't
+          have to mean overpriced.
+        </h3>
+
+        <p>
+          We keep the process lean and use technology
+          intelligently so ambitious businesses can get
+          a high-quality website without the traditional
+          agency price tag.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     PROCESS
+     ===================================================== -->
+
+<section class="section process-section" id="process">
+
+  <div class="container">
+
+    <div class="process-heading">
+
+      <div class="section-label">
+        HOW IT WORKS
+      </div>
+
+      <h2 class="section-title">
+        Simple process.
+        <br />
+        Serious result.
+      </h2>
+
+      <p class="process-intro">
+        No endless meetings. No complicated agency process.
+        Just a clear path from idea to a website you're proud
+        to put in front of your customers.
+      </p>
+
+    </div>
+
+    <div class="process-list">
+
+      <article class="process-item">
+
+        <div class="process-number">
+          01
+        </div>
+
+        <h3>
+          Tell us what
+          you need.
+        </h3>
+
+        <p>
+          Tell us about your business, what you're trying
+          to achieve and what you want your website to do.
+          We'll take it from there.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          02
+        </div>
+
+        <h3>
+          We design
+          & build.
+        </h3>
+
+        <p>
+          We shape the structure, visual direction and
+          experience around your business, then turn it
+          into a polished working website.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          03
+        </div>
+
+        <h3>
+          Review
+          & refine.
+        </h3>
+
+        <p>
+          You see the work, give us your feedback and we
+          refine the details until everything feels right.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          04
+        </div>
+
+        <h3>
+          Go
+          live.
+        </h3>
+
+        <p>
+          Your website is launched, connected to your
+          domain and ready for your customers to see.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     PRICING
+     ===================================================== -->
+
+<section class="section pricing-section" id="pricing">
+  <div class="container">
+
+    <div class="pricing-heading">
+      <div class="section-label">PRICING</div>
+      <h2 class="section-title">Simple pricing.<br />No surprises.</h2>
+      <p>
+        Choose the level that fits your business.
+        Every website is designed around what you actually need.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <article class="price-card">
+        <div class="price-top">
+          <span class="price-number">01</span>
+          <span class="price-label">STARTER</span>
+        </div>
+
+        <h3>₦60,000</h3>
+        <p class="price-description">
+          A clean, professional website for businesses
+          that need to get online properly.
+        </p>
+
+        <div class="price-divider"></div>
+
+        <ul>
+          <li>Up to 5 pages</li>
+          <li>Responsive design</li>
+          <li>WhatsApp integration</li>
+          <li>Contact form</li>
+          <li>Deployment & setup</li>
+        </ul>
+
+        <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer" class="price-button">
+          Start a project →
+        </a>
+      </article>
+
+      <!-- STANDARD -->
+      <article class="price-card price-card-featured">
+        <div class="price-top">
+          <span class="price-number">02</span>
+          <span class="price-label">STANDARD</span>
+        </div>
+
+        <div class="price-badge">MOST POPULAR</div>
+
+        <h3>₦120,000</h3>
+        <p class="price-description">
+          A more complete digital presence for businesses
+          ready to stand out and grow.
+        </p>
+
+        <div class="price-divider"></div>
+
+        <ul>
+          <li>Up to 10 pages</li>
+          <li>Custom UI & interactions</li>
+          <li>WhatsApp integration</li>
+          <li>Advanced sections</li>
+          <li>Deployment & setup</li>
+        </ul>
+
+        <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer" class="price-button">
+          Start a project →
+        </a>
+      </article>
+
+      <!-- PORTFOLIO -->
+      <article class="price-card">
+        <div class="price-top">
+          <span class="price-number">03</span>
+          <span class="price-label">PORTFOLIO</span>
+        </div>
+
+        <h3>₦50,000<span class="price-from">+</span></h3>
+        <p class="price-description">
+          Personal websites for creatives, professionals,
+          models, artists and personal brands.
+        </p>
+
+        <div class="price-divider"></div>
+
+        <ul>
+          <li>Custom portfolio layout</li>
+          <li>Gallery / project showcase</li>
+          <li>Social media links</li>
+          <li>Mobile responsive</li>
+          <li>Deployment & setup</li>
+        </ul>
+
+        <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer" class="price-button">
+          Start a project →
+        </a>
+      </article>
+
+      <!-- MAINTENANCE -->
+      <article class="price-card">
+        <div class="price-top">
+          <span class="price-number">04</span>
+          <span class="price-label">MAINTENANCE</span>
+        </div>
+
+        <h3>₦12,000<span class="price-period">/month</span></h3>
+        <p class="price-description">
+          Keep your website updated, maintained and
+          running smoothly after launch.
+        </p>
+
+        <div class="price-divider"></div>
+
+        <ul>
+          <li>Content updates</li>
+          <li>Technical maintenance</li>
+          <li>Bug fixes</li>
+          <li>Performance checks</li>
+          <li>Ongoing support</li>
+        </ul>
+
+        <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer" class="price-button">
+          Ask about maintenance →
+        </a>
+      </article>
+
+    </div>
+
+    <div class="pricing-note">
+      Need something more specific?
+      <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer">
+        Tell us what you're building →
+      </a>
+    </div>
+
+  </div>
+</section>
+<!-- =====================================================
+     FINAL CTA
+     ===================================================== -->
+
+<section class="section cta-section" id="start">
+
+  <div class="container">
+
+    <div class="cta-content">
+
+      <div class="cta-label">
+        HAVE A PROJECT IN MIND?
+      </div>
+
+      <h2 class="cta-title">
+        Let's build
+        something better.
+      </h2>
+
+      <p class="cta-text">
+        Tell us what you're building, what you need
+        and where you want to go. We'll take it from there.
+      </p>
+
+      <div class="cta-actions">
+
+        <a
+          href="https://wa.me/2347047426376"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-button"
+        >
+          Start a project →
+        </a>
+
+        <a
+          href="#work"
+          class="cta-button secondary"
+        >
+          See our work
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+</main>
+  <!-- =====================================================
+     PROCESS
+     ===================================================== -->
+
+
+<!-- =====================================================
+     PRICING
+     ===================================================== -->
+
+
+<!-- =====================================================
+     FINAL CTA
+     ===================================================== -->
+
+
+</main>
+  <!-- =====================================================
+     PROCESS
+     ===================================================== -->
+
+
+<!-- =====================================================
+     PRICING
+     ===================================================== -->
+
+
+<!-- =====================================================
+     FINAL CTA
+     ===================================================== -->
+
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+
+        <div class="footer-logo">
+          SABISITE
+        </div>
+
+        <p class="footer-tagline">
+          AI-assisted websites. Human-directed design.
+          Modern digital experiences for ambitious businesses.
+        </p>
+
+      </div>
+
+      <div class="footer-links">
+
+        <div class="footer-column">
+
+          <div class="footer-column-label">
+            EXPLORE
+          </div>
+
+          <a href="#work">Work</a>
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+
+        </div>
+
+        <div class="footer-column">
+
+          <div class="footer-column-label">
+            START
+          </div>
+
+          <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer">Start a project</a>
+          <a
+            href="https://wa.me/2347047426376"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 SabiSite. All rights reserved.
+      </span>
+
+      <span>
+        Lagos, Nigeria
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+<!-- FLOATING WHATSAPP -->
+
+<a
+  href="https://wa.me/2347047426376"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="whatsapp-float"
+  aria-label="Chat with SabiSite on WhatsApp"
+>
+  <span class="whatsapp-icon">↗</span>
+  <span>Chat on WhatsApp</span>
+</a>
+<!-- SABISITE_WORK_EXPAND_PATCH -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const categories = document.querySelectorAll('.work-category');
+
+  categories.forEach(function (category) {
+    const grid = category.querySelector('.work-category-grid');
+
+    if (!grid) return;
+
+    const projects = Array.from(grid.children);
+
+    // Only add the expand control when there are more than 2 projects.
+    if (projects.length <= 2) return;
+
+    const button = document.createElement('button');
+
+    button.type = 'button';
+    button.className = 'work-category-expand';
+
+    const icon = document.createElement('span');
+    icon.className = 'expand-icon';
+    icon.textContent = '↓';
+
+    const label = document.createElement('span');
+    label.textContent = 'VIEW ALL ' + projects.length + ' PROJECTS';
+
+    button.appendChild(label);
+    button.appendChild(icon);
+
+    grid.insertAdjacentElement('afterend', button);
+
+    button.addEventListener('click', function () {
+      const isExpanded = grid.classList.toggle('is-expanded');
+
+      button.classList.toggle('is-open', isExpanded);
+
+      if (isExpanded) {
+        label.textContent = 'SHOW LESS';
+      } else {
+        label.textContent = 'VIEW ALL ' + projects.length + ' PROJECTS';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

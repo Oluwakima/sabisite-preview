@@ -1,0 +1,13 @@
+{
+  "name": "sabisite",
+  "version": "1.0.0",
+  "description": "SabiSite — pitch site and deal tracker for AI-built websites for Nigerian businesses",
+  "private": true,
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "dev": "npx serve . -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

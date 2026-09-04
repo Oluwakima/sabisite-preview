@@ -1,0 +1,3957 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>SabiSite â€” AI-assisted websites. Human-directed design.</title>
+
+  <meta
+    name="description"
+    content="SabiSite designs and builds modern websites for ambitious businesses, brands and professionals."
+  />
+
+  <meta name="theme-color" content="#10110e" />
+
+  <style>
+    /* =========================================================
+       SABISITE 2.0 â€” DESIGN SYSTEM
+       ========================================================= */
+
+    :root {
+      --black: #10110e;
+      --black-soft: #171914;
+      --cream: #f2efe6;
+      --cream-muted: #c9c6bb;
+      --green: #b8ee55;
+      --green-dark: #8dbd36;
+      --line: rgba(242, 239, 230, 0.14);
+
+      --max-width: 1240px;
+
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family:
+        Inter,
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(
+        calc(100% - 48px),
+        var(--max-width)
+      );
+
+      margin-inline: auto;
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .site-nav {
+      height: 86px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom: 1px solid var(--line);
+
+      position: relative;
+      z-index: 20;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+
+      letter-spacing: -0.075em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      font-size: 13px;
+      color: var(--cream-muted);
+    }
+
+    .nav-links a {
+      transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 12px 17px;
+
+      background: var(--cream);
+      color: var(--black);
+
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      transition:
+        transform 0.25s var(--ease),
+        background 0.25s ease;
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      background: var(--green);
+    }
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: 720px;
+
+      padding: 90px 0 100px;
+
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+
+      gap: 70px;
+
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 26px;
+
+      color: var(--green);
+
+      font-size: 11px;
+      font-weight: 850;
+
+      letter-spacing: 0.17em;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+
+      font-size:
+        clamp(
+          58px,
+          7.4vw,
+          112px
+        );
+
+      line-height: 0.88;
+
+      letter-spacing: -0.075em;
+
+      font-weight: 850;
+    }
+
+    .hero-copy {
+      max-width: 580px;
+
+      margin-top: 32px;
+
+      color: var(--cream-muted);
+
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .hero-copy strong {
+      color: var(--cream);
+      font-weight: 650;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      margin-top: 34px;
+
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      min-height: 50px;
+
+      padding: 0 20px;
+
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 850;
+
+      transition:
+        transform 0.3s var(--ease),
+        background 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .button-primary {
+      background: var(--green);
+      color: var(--black);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-3px);
+      background: #c9ff70;
+    }
+
+    .button-secondary {
+      border: 1px solid var(--line);
+      color: var(--cream);
+    }
+
+    .button-secondary:hover {
+      transform: translateY(-3px);
+      border-color: rgba(242, 239, 230, 0.35);
+    }
+
+
+    /* =========================================================
+       HERO PROJECT STACK
+       ========================================================= */
+
+    .hero-visual {
+      position: relative;
+
+      min-height: 520px;
+    }
+
+    .project-window {
+      position: absolute;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(
+        242,
+        239,
+        230,
+        0.2
+      );
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.45);
+
+      transition:
+        transform 0.6s var(--ease);
+    }
+
+    .project-window:hover {
+      transform: translateY(-8px) rotate(0deg) !important;
+    }
+
+    .window-top {
+      height: 31px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 5px;
+
+      padding-left: 11px;
+
+      background: rgba(
+        0,
+        0,
+        0,
+        0.45
+      );
+    }
+
+    .window-dot {
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: rgba(
+        242,
+        239,
+        230,
+        0.35
+      );
+    }
+
+    .window-content {
+      height: calc(100% - 31px);
+
+      padding: 28px;
+    }
+
+    .window-label {
+      display: inline-block;
+
+      padding: 6px 9px;
+
+      border: 1px solid currentColor;
+
+      border-radius: 999px;
+
+      font-size: 8px;
+      font-weight: 850;
+
+      letter-spacing: 0.14em;
+    }
+
+    .window-title {
+      margin-top: 42px;
+
+      max-width: 270px;
+
+      font-size: 42px;
+      line-height: 0.88;
+
+      letter-spacing: -0.07em;
+
+      font-weight: 900;
+    }
+
+    .window-line {
+      width: 58%;
+      height: 5px;
+
+      margin-top: 24px;
+
+      background: currentColor;
+
+      opacity: 0.5;
+    }
+
+    .window-line-small {
+      width: 34%;
+      height: 5px;
+
+      margin-top: 8px;
+
+      background: currentColor;
+
+      opacity: 0.3;
+    }
+
+    .window-one {
+      width: 80%;
+      height: 315px;
+
+      top: 0;
+      right: 0;
+
+      z-index: 1;
+
+      background:
+        linear-gradient(
+          135deg,
+          #24291f,
+          #11130f
+        );
+
+      transform: rotate(2deg);
+    }
+
+    .window-two {
+      width: 70%;
+      height: 285px;
+
+      top: 150px;
+      left: 0;
+
+      z-index: 2;
+
+      color: #14150f;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ddd6c8,
+          #888174
+        );
+
+      transform: rotate(-3deg);
+    }
+
+    .window-three {
+      width: 62%;
+      height: 230px;
+
+      right: 7%;
+      bottom: 0;
+
+      z-index: 3;
+
+      color: #10110e;
+
+      background:
+        linear-gradient(
+          135deg,
+          #e7e0d1,
+          #b4c88c
+        );
+
+      transform: rotate(2deg);
+    }
+
+
+    /* =========================================================
+       SHARED SECTION
+       ========================================================= */
+
+    .section {
+      padding: 125px 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      margin-bottom: 20px;
+
+      color: var(--green);
+
+      font-size: 11px;
+      font-weight: 850;
+
+      letter-spacing: 0.17em;
+    }
+
+    .section-title {
+      max-width: 950px;
+
+      font-size:
+        clamp(
+          43px,
+          6vw,
+          82px
+        );
+
+      line-height: 0.93;
+
+      letter-spacing: -0.065em;
+
+      font-weight: 850;
+    }
+
+/* =========================================================
+   POSITIONING
+   ========================================================= */
+
+.positioning {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(280px, 0.75fr);
+
+  gap: 90px;
+
+  align-items: end;
+}
+
+.positioning-copy {
+  max-width: 430px;
+
+  padding-bottom: 5px;
+}
+
+.positioning-copy p {
+  color: var(--cream-muted);
+
+  font-size: 18px;
+
+  line-height: 1.55;
+
+  margin-bottom: 20px;
+}
+
+.positioning-copy p:last-child {
+  color: var(--cream);
+
+  font-weight: 700;
+
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   PRINCIPLES
+   ========================================================= */
+
+.principles {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 1px;
+
+  margin-top: 90px;
+
+  background: var(--line);
+}
+
+.principle {
+  min-height: 270px;
+
+  padding: 30px;
+
+  background: var(--black);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  transition:
+    background 0.35s ease;
+}
+
+.principle:hover {
+  background: var(--black-soft);
+}
+
+.principle-number {
+  color: var(--green);
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+  letter-spacing: 0.12em;
+}
+
+.principle-content h3 {
+  margin-bottom: 10px;
+
+  font-size: 29px;
+
+  line-height: 1;
+
+  letter-spacing: -0.055em;
+}
+
+.principle-content p {
+  max-width: 310px;
+
+  color: #92918a;
+
+  font-size: 14px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.services-heading {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    360px;
+
+  gap: 80px;
+
+  align-items: end;
+}
+
+.services-intro {
+  color: var(--cream-muted);
+
+  font-size: 17px;
+
+  line-height: 1.55;
+
+  max-width: 330px;
+
+  margin-bottom: 5px;
+}
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 1px;
+
+  margin-top: 70px;
+
+  background: var(--line);
+}
+
+.service-card {
+  min-height: 320px;
+
+  padding: 30px;
+
+  background: var(--black);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  transition:
+    background 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+.service-card:hover {
+  background: var(--black-soft);
+
+  transform: translateY(-3px);
+}
+
+.service-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.service-number {
+  color: var(--green);
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+  letter-spacing: 0.12em;
+}
+
+.service-arrow {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid var(--line);
+
+  border-radius: 50%;
+
+  color: var(--cream-muted);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s var(--ease);
+}
+
+.service-card:hover .service-arrow {
+  background: var(--green);
+
+  color: var(--black);
+
+  transform: rotate(45deg);
+}
+
+.service-body h3 {
+  font-size:
+    clamp(
+      32px,
+      4vw,
+      50px
+    );
+
+  line-height: 0.9;
+
+  letter-spacing: -0.065em;
+
+  margin-bottom: 18px;
+}
+
+.service-body p {
+  max-width: 390px;
+
+  color: #92918a;
+
+  font-size: 14px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   RESPONSIVE â€” NEW SECTIONS
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .positioning {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .positioning-copy {
+    max-width: 600px;
+  }
+
+  .services-heading {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .principles {
+    grid-template-columns: 1fr;
+
+    margin-top: 60px;
+  }
+
+  .principle {
+    min-height: 220px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+
+    margin-top: 55px;
+  }
+
+  .service-card {
+    min-height: 280px;
+  }
+
+}/* =========================================================
+   WORK SECTION
+   ========================================================= */
+
+.work-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 80px;
+  align-items: end;
+}
+
+.work-intro {
+  color: var(--cream-muted);
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 330px;
+  margin-bottom: 5px;
+}
+
+.work-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.55fr);
+  gap: 1px;
+  margin-top: 70px;
+  background: var(--line);
+}
+
+.work-visual {
+  min-height: 600px;
+  background: #171714;
+  padding: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.browser-frame {
+  width: 100%;
+  max-width: 850px;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45);
+  transform: perspective(1200px) rotateX(2deg);
+  transition: transform 0.6s var(--ease);
+}
+
+.work-feature:hover .browser-frame {
+  transform: perspective(1200px) rotateX(0deg) translateY(-5px);
+}
+
+.browser-top {
+  height: 34px;
+  padding: 0 14px;
+  background: #242420;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.browser-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.browser-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5f5f58;
+}
+
+.browser-address {
+  flex: 1;
+  text-align: center;
+  color: #77776f;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.haven-preview {
+  min-height: 470px;
+  padding: 28px;
+  background: linear-gradient(135deg, #d8d0bd, #b6aa91);
+  color: #171713;
+  position: relative;
+  overflow: hidden;
+}
+
+.haven-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 10px;
+}
+
+.haven-nav strong {
+  margin-right: auto;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+
+.haven-content {
+  position: absolute;
+  left: 10%;
+  bottom: 12%;
+}
+
+.haven-content > span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.haven-content h3 {
+  margin: 18px 0;
+  font-size: clamp(38px, 6vw, 76px);
+  line-height: 0.88;
+  letter-spacing: -0.07em;
+  font-weight: 700;
+}
+
+.haven-button {
+  display: inline-block;
+  padding: 12px 18px;
+  background: #171713;
+  color: #f1ede4;
+  font-size: 10px;
+}
+
+.work-feature-copy {
+  padding: 45px;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.work-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.work-feature-copy h3 {
+  margin-top: 25px;
+  font-size: clamp(45px, 5vw, 75px);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+.work-feature-copy p {
+  max-width: 400px;
+  margin-top: 25px;
+  color: #92918a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 30px;
+}
+
+.work-tags span {
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  color: var(--cream-muted);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: 1px;
+  background: var(--line);
+}
+
+.work-card {
+  background: var(--black);
+  overflow: hidden;
+  transition: background 0.35s ease;
+}
+
+.work-card:hover {
+  background: var(--black-soft);
+}
+
+.work-card-visual {
+  min-height: 430px;
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  transition: transform 0.5s var(--ease);
+}
+
+.work-card:hover .work-card-visual {
+  transform: scale(1.015);
+}
+
+.work-card-info {
+  padding: 24px 30px 30px;
+}
+
+.work-card-info h3 {
+  margin-top: 13px;
+  font-size: 29px;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+/* VANGA */
+
+.vanga-preview {
+  background: linear-gradient(135deg, #d6d1c5, #88877e);
+  color: #171713;
+}
+
+.mini-brand {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.mini-fashion {
+  position: absolute;
+  left: 12%;
+  bottom: 15%;
+}
+
+.mini-fashion span {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+}
+
+.mini-fashion strong {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(45px, 7vw, 82px);
+  line-height: 0.82;
+  letter-spacing: -0.08em;
+}
+
+/* SABISOLE */
+
+.sabisole-preview {
+  background: radial-gradient(circle at 70% 35%, #d9d0bd, #726d61 65%);
+  color: #f4f0e8;
+}
+
+.shoe-shape {
+  position: absolute;
+  width: 62%;
+  height: 55%;
+  left: 20%;
+  top: 24%;
+  transform: rotate(-18deg);
+}
+
+.shoe-upper {
+  position: absolute;
+  width: 80%;
+  height: 55%;
+  left: 5%;
+  top: 15%;
+  border-radius: 55% 25% 20% 45%;
+  background: #1a1a17;
+}
+
+.shoe-sole {
+  position: absolute;
+  width: 88%;
+  height: 12%;
+  left: 2%;
+  bottom: 22%;
+  border-radius: 50%;
+  background: #e5e0d6;
+}
+
+.mini-shop {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+/* PRECIOUS FREEMAN */
+
+.precious-preview {
+  background: #d2cec2;
+  color: #181815;
+}
+
+.precious-name {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  font-size: clamp(32px, 5vw, 62px);
+  line-height: 0.85;
+  letter-spacing: -0.07em;
+  font-weight: 800;
+}
+
+.precious-circle {
+  position: absolute;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: 10%;
+  right: 8%;
+  background: radial-gradient(circle, #49463e 0 20%, #8e887b 21% 45%, #c2b9a9 46% 100%);
+  opacity: 0.85;
+}
+
+.precious-caption {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+}
+
+/* KORA */
+
+.kora-preview {
+  background: #ebe4d5;
+  color: #1b1b17;
+}
+
+.kora-mark {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.kora-title {
+  position: absolute;
+  left: 10%;
+  top: 25%;
+  font-size: clamp(38px, 6vw, 70px);
+  line-height: 0.82;
+  letter-spacing: -0.08em;
+  font-weight: 800;
+}
+
+/* LAGOSSTAY */
+
+.lagosstay-preview {
+  background: linear-gradient(135deg, #34362f, #737461);
+  color: #eeeade;
+}
+
+.stay-top {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.stay-title {
+  position: absolute;
+  left: 10%;
+  bottom: 19%;
+  font-size: clamp(45px, 7vw, 80px);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  font-weight: 800;
+}
+
+/* AURELIA */
+
+.aurelia-preview {
+  background: #d8d1c4;
+  color: #292821;
+}
+
+.aurelia-brand {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+.aurelia-title {
+  position: absolute;
+  left: 12%;
+  bottom: 20%;
+  font-family: Georgia, serif;
+  font-size: clamp(45px, 7vw, 80px);
+  line-height: 0.8;
+  letter-spacing: -0.07em;
+}
+
+/* MOTIVE */
+
+.motive-preview {
+  background: #151513;
+  color: #f1eee5;
+}
+
+.motive-brand {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.motive-title {
+  position: absolute;
+  left: 10%;
+  bottom: 15%;
+  font-size: clamp(42px, 7vw, 78px);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  font-weight: 850;
+}
+
+/* ATLAS MOTORS */
+
+.atlas-preview {
+  background: linear-gradient(135deg, #c9c7bf, #73736c);
+  color: #171713;
+}
+
+.atlas-top {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.atlas-car {
+  position: absolute;
+  width: 75%;
+  height: 38%;
+  left: 13%;
+  top: 34%;
+}
+
+.car-body {
+  position: absolute;
+  width: 100%;
+  height: 45%;
+  bottom: 15%;
+  border-radius: 35% 20% 10% 15%;
+  background: #252521;
+}
+
+.car-roof {
+  position: absolute;
+  width: 55%;
+  height: 48%;
+  left: 23%;
+  top: 3%;
+  border-radius: 60% 60% 10% 10%;
+  background: #30302b;
+}
+
+.car-wheel {
+  position: absolute;
+  width: 14%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  bottom: 0;
+  background: #11110f;
+  border: 7px solid #575750;
+}
+
+.car-wheel.left {
+  left: 13%;
+}
+
+.car-wheel.right {
+  right: 13%;
+}
+
+/* SABISITE */
+
+.sabisite-preview {
+  background: var(--green);
+  color: var(--black);
+}
+
+.sabisite-symbol {
+  position: absolute;
+  right: 10%;
+  top: 5%;
+  font-size: clamp(180px, 28vw, 330px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.12em;
+  opacity: 0.13;
+}
+
+.sabisite-title {
+  position: absolute;
+  left: 10%;
+  bottom: 22%;
+  font-size: clamp(45px, 7vw, 82px);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  font-weight: 900;
+}
+
+/* WORK RESPONSIVE */
+
+@media (max-width: 950px) {
+
+  .work-heading {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .work-feature {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-feature-copy {
+    padding: 30px;
+  }
+
+  .work-card-visual {
+    min-height: 360px;
+  }
+
+}/* =========================================================
+   WHY SABISITE
+   ========================================================= */
+
+.why-section {
+  background: #11110f;
+  color: #f4f0e8;
+}
+
+.why-heading {
+  max-width: 850px;
+  margin-bottom: 80px;
+}
+
+.why-heading .section-label {
+  color: #9aa58f;
+}
+
+.why-heading .section-title {
+  color: #f4f0e8;
+}
+
+.why-intro {
+  max-width: 650px;
+  margin-top: 28px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(244, 240, 232, 0.65);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid rgba(244, 240, 232, 0.14);
+}
+
+.why-card {
+  padding: 42px 38px 48px 0;
+  border-bottom: 1px solid rgba(244, 240, 232, 0.14);
+}
+
+.why-card:nth-child(odd) {
+  padding-right: 70px;
+  border-right: 1px solid rgba(244, 240, 232, 0.14);
+}
+
+.why-card:nth-child(even) {
+  padding-left: 70px;
+}
+
+.why-number {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #9aa58f;
+  margin-bottom: 55px;
+}
+
+.why-card h3 {
+  font-size: 28px;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  letter-spacing: -0.03em;
+}
+
+.why-card p {
+  max-width: 440px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(244, 240, 232, 0.58);
+}
+
+/* WHY RESPONSIVE */
+
+@media (max-width: 750px) {
+
+  .why-heading {
+    margin-bottom: 55px;
+  }
+
+  .why-intro {
+    font-size: 18px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-card,
+  .why-card:nth-child(odd),
+  .why-card:nth-child(even) {
+    padding: 32px 0 38px;
+    border-right: none;
+  }
+
+  .why-number {
+    margin-bottom: 35px;
+  }
+
+  .why-card h3 {
+    font-size: 24px;
+  }
+
+}
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 950px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding-top: 70px;
+      }
+
+      .hero-visual {
+        min-height: 470px;
+      }
+    }
+
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(
+          calc(100% - 30px),
+          var(--max-width)
+        );
+      }
+
+      .site-nav {
+        height: 72px;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+
+      .nav-button {
+        padding: 10px 14px;
+      }
+
+      .hero {
+        min-height: auto;
+
+        padding:
+          65px
+          0
+          80px;
+      }
+
+      .hero h1 {
+        font-size: 58px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        min-height: 360px;
+      }
+
+      .window-one {
+        height: 225px;
+      }
+
+      .window-two {
+        height: 205px;
+        top: 112px;
+      }
+
+      .window-three {
+        height: 170px;
+      }
+
+      .window-title {
+        font-size: 28px;
+        margin-top: 25px;
+      }
+
+      .window-content {
+        padding: 20px;
+      }
+
+      .section {
+        padding: 90px 0;
+      }
+    }
+  /* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-section {
+  background: #f4f0e8;
+}
+
+.process-heading {
+  max-width: 760px;
+  margin-bottom: 80px;
+}
+
+.process-intro {
+  max-width: 620px;
+  margin-top: 28px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(17, 17, 15, 0.62);
+}
+
+.process-list {
+  border-top: 1px solid rgba(17, 17, 15, 0.16);
+}
+
+.process-item {
+  display: grid;
+  grid-template-columns: 90px 1fr 1fr;
+  gap: 40px;
+  padding: 42px 0;
+  border-bottom: 1px solid rgba(17, 17, 15, 0.16);
+  align-items: start;
+}
+
+.process-number {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #6f7d61;
+  padding-top: 5px;
+}
+
+.process-item h3 {
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.process-item p {
+  max-width: 420px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(17, 17, 15, 0.58);
+}
+
+@media (max-width: 750px) {
+  .process-heading {
+    margin-bottom: 55px;
+  }
+
+  .process-intro {
+    font-size: 18px;
+  }
+
+  .process-item {
+    grid-template-columns: 50px 1fr;
+    gap: 20px;
+    padding: 32px 0;
+  }
+
+  .process-item h3 {
+    font-size: 26px;
+  }
+
+  .process-item p {
+    grid-column: 2;
+    margin-top: -5px;
+  }
+}
+/* =========================================================
+   PRICING
+   ========================================================= */
+
+.pricing-section {
+  background: #11110f;
+  color: #f4f0e8;
+}
+
+.pricing-heading {
+  max-width: 760px;
+  margin-bottom: 75px;
+}
+
+.pricing-heading .section-label {
+  color: #9aa58f;
+}
+
+.pricing-heading .section-title {
+  color: #f4f0e8;
+}
+
+.pricing-intro {
+  max-width: 600px;
+  margin-top: 26px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: rgba(244, 240, 232, 0.62);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.price-card {
+  position: relative;
+  padding: 42px;
+  min-height: 470px;
+  border: 1px solid rgba(244, 240, 232, 0.16);
+  display: flex;
+  flex-direction: column;
+}
+
+.price-card.featured {
+  background: #f4f0e8;
+  color: #11110f;
+  border-color: #f4f0e8;
+}
+
+.price-card-label {
+  font-size: 12px;
+  letter-spacing: 0.13em;
+  color: #9aa58f;
+  margin-bottom: 55px;
+}
+
+.price-card.featured .price-card-label {
+  color: #6f7d61;
+}
+
+.price-card h3 {
+  font-size: 34px;
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+}
+
+.price-card-description {
+  max-width: 400px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(244, 240, 232, 0.56);
+}
+
+.price-card.featured .price-card-description {
+  color: rgba(17, 17, 15, 0.58);
+}
+
+.price {
+  margin-top: auto;
+  padding-top: 50px;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.price small {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: rgba(244, 240, 232, 0.42);
+}
+
+.price-card.featured .price small {
+  color: rgba(17, 17, 15, 0.48);
+}
+
+.price-card ul {
+  list-style: none;
+  margin: 35px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.price-card li {
+  font-size: 14px;
+  color: rgba(244, 240, 232, 0.62);
+}
+
+.price-card.featured li {
+  color: rgba(17, 17, 15, 0.62);
+}
+
+.price-card li::before {
+  content: "→";
+  margin-right: 10px;
+  color: #9aa58f;
+}
+
+.pricing-note {
+  margin-top: 28px;
+  font-size: 14px;
+  color: rgba(244, 240, 232, 0.42);
+}
+
+.pricing-secondary {
+  margin-top: 18px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(244, 240, 232, 0.14);
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+}
+
+.pricing-secondary strong {
+  font-size: 18px;
+}
+
+.pricing-secondary span {
+  font-size: 14px;
+  color: rgba(244, 240, 232, 0.5);
+}
+
+/* PRICING RESPONSIVE */
+
+@media (max-width: 750px) {
+
+  .pricing-heading {
+    margin-bottom: 55px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .price-card {
+    min-height: 420px;
+    padding: 32px;
+  }
+
+  .price-card-label {
+    margin-bottom: 40px;
+  }
+
+  .price-card h3 {
+    font-size: 29px;
+  }
+
+  .price {
+    font-size: 40px;
+  }
+
+  .pricing-secondary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+}
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.cta-section {
+  background: #6f7d61;
+  color: #f4f0e8;
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+
+.cta-content {
+  max-width: 1000px;
+}
+
+.cta-label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  margin-bottom: 32px;
+  color: rgba(244, 240, 232, 0.72);
+}
+
+.cta-title {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(58px, 8vw, 120px);
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+  font-weight: 600;
+}
+
+.cta-text {
+  max-width: 540px;
+  margin-top: 38px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: rgba(244, 240, 232, 0.76);
+}
+
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 42px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 23px;
+  background: #f4f0e8;
+  color: #11110f;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: #f4f0e8;
+  border: 1px solid rgba(244, 240, 232, 0.42);
+}
+
+/* CTA RESPONSIVE */
+
+@media (max-width: 650px) {
+
+  .cta-section {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .cta-title {
+    font-size: clamp(52px, 15vw, 82px);
+  }
+
+  .cta-text {
+    font-size: 17px;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+}
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  background: #11110f;
+  color: #f4f0e8;
+  padding: 70px 0 32px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  padding-bottom: 70px;
+}
+
+.footer-brand {
+  max-width: 420px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.footer-tagline {
+  max-width: 360px;
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(244, 240, 232, 0.5);
+}
+
+.footer-links {
+  display: flex;
+  gap: 80px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.footer-column-label {
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  color: #9aa58f;
+}
+
+.footer-column a {
+  color: rgba(244, 240, 232, 0.68);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 180ms ease;
+}
+
+.footer-column a:hover {
+  color: #f4f0e8;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(244, 240, 232, 0.13);
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  font-size: 12px;
+  color: rgba(244, 240, 232, 0.38);
+}
+
+/* FOOTER RESPONSIVE */
+
+@media (max-width: 750px) {
+
+  .site-footer {
+    padding-top: 55px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    padding-bottom: 55px;
+  }
+
+  .footer-links {
+    gap: 45px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 25px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       NAVIGATION
+       ======================================================= -->
+
+  <header class="container site-nav">
+
+    <a
+      href="#"
+      class="logo"
+    >
+      SABISITE
+    </a>
+
+    <nav class="nav-links">
+
+      <a href="#work">
+        Work
+      </a>
+
+      <a href="#services">
+        Services
+      </a>
+
+      <a href="#process">
+        Process
+      </a>
+
+      <a href="#pricing">
+        Pricing
+      </a>
+
+      <a href="#about">
+        About
+      </a>
+
+    </nav>
+
+    <a
+      href="https://wa.me/2347047426376"
+      target="_blank"
+      rel="noopener"
+      class="nav-button"
+    >
+      Start a project â†’
+    </a>
+
+  </header>
+
+
+  <!-- =======================================================
+       HERO
+       ======================================================= -->
+
+  <main>
+
+    <section class="container hero">
+
+      <div class="hero-copy-block">
+
+        <div class="eyebrow">
+          SABISITE â€” DIGITAL STUDIO
+        </div>
+
+        <h1>
+          Your business deserves a better website.
+        </h1>
+
+        <p class="hero-copy">
+          We design and build modern websites for ambitious
+          businesses, brands and professionals.
+          <strong>
+            AI-assisted. Human-directed. Built around your business.
+          </strong>
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="https://wa.me/2347047426376"
+            target="_blank"
+            rel="noopener"
+            class="button button-primary"
+          >
+            Start a project â†’
+          </a>
+
+          <a
+            href="#work"
+            class="button button-secondary"
+          >
+            See our work â†“
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT COLLAGE -->
+
+      <div class="hero-visual">
+
+        <div class="project-window window-one">
+
+          <div class="window-top">
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+          </div>
+
+          <div class="window-content">
+
+            <span class="window-label">
+              VANGA
+            </span>
+
+            <div class="window-title">
+              Built to look the part.
+            </div>
+
+            <div class="window-line"></div>
+            <div class="window-line-small"></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project-window window-two">
+
+          <div class="window-top">
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+          </div>
+
+          <div class="window-content">
+
+            <span class="window-label">
+              SABISOLE
+            </span>
+
+            <div class="window-title">
+              Shop the collection.
+            </div>
+
+            <div class="window-line"></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="project-window window-three">
+
+          <div class="window-top">
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+            <span class="window-dot"></span>
+          </div>
+
+          <div class="window-content">
+
+            <span class="window-label">
+              PRECIOUS FREEMAN
+            </span>
+
+            <div class="window-title">
+              A personal brand, online.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+   <!-- =====================================================
+     POSITIONING
+     ===================================================== -->
+
+<section class="section" id="about">
+
+  <div class="container">
+
+    <div class="positioning">
+
+      <div class="positioning-main">
+
+        <div class="section-label">
+          THE IDEA
+        </div>
+
+        <h2 class="section-title">
+          We don't just make websites.
+          <br />
+          We make businesses look like
+          they belong online.
+        </h2>
+
+      </div>
+
+      <div class="positioning-copy">
+
+        <p>
+          A strong website should communicate quickly,
+          build trust immediately and give people a reason
+          to take the next step.
+        </p>
+
+        <p>
+          That's what we build.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- THREE PRINCIPLES -->
+
+    <div class="principles">
+
+      <article class="principle">
+
+        <span class="principle-number">
+          01
+        </span>
+
+        <div class="principle-content">
+
+          <h3>
+            Strategy
+          </h3>
+
+          <p>
+            We start with what the website needs
+            to accomplish â€” not with a template.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="principle">
+
+        <span class="principle-number">
+          02
+        </span>
+
+        <div class="principle-content">
+
+          <h3>
+            Design
+          </h3>
+
+          <p>
+            Strong typography, clear hierarchy
+            and a visual identity people remember.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="principle">
+
+        <span class="principle-number">
+          03
+        </span>
+
+        <div class="principle-content">
+
+          <h3>
+            Technology
+          </h3>
+
+          <p>
+            AI-assisted workflows help us move
+            quickly while creative direction stays human.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES
+     ===================================================== -->
+
+<section class="section" id="services">
+
+  <div class="container">
+
+    <div class="services-heading">
+
+      <div>
+
+        <div class="section-label">
+          WHAT WE BUILD
+        </div>
+
+        <h2 class="section-title">
+          Websites with
+          <br />
+          a job to do.
+        </h2>
+
+      </div>
+
+      <p class="services-intro">
+        From your first impression to the final click,
+        every page should have a purpose.
+      </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+      <!-- SERVICE 01 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            01
+          </span>
+
+          <span class="service-arrow">
+            â†—
+          </span>
+
+        </div>
+
+        <div class="service-body">
+
+          <h3>
+            Business
+            <br />
+            Websites
+          </h3>
+
+          <p>
+            Professional digital homes for companies
+            ready to look the part.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- SERVICE 02 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            02
+          </span>
+
+          <span class="service-arrow">
+            â†—
+          </span>
+
+        </div>
+
+        <div class="service-body">
+
+          <h3>
+            E-commerce
+          </h3>
+
+          <p>
+            Online stores designed around discovery,
+            trust and conversion.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- SERVICE 03 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            03
+          </span>
+
+          <span class="service-arrow">
+            â†—
+          </span>
+
+        </div>
+
+        <div class="service-body">
+
+          <h3>
+            Personal
+            <br />
+            Brands
+          </h3>
+
+          <p>
+            Portfolios and digital identities built
+            around people and their work.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- SERVICE 04 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            04
+          </span>
+
+          <span class="service-arrow">
+            â†—
+          </span>
+
+        </div>
+
+        <div class="service-body">
+
+          <h3>
+            Landing
+            <br />
+            Pages
+          </h3>
+
+          <p>
+            Focused pages built around one clear
+            audience and one clear objective.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+</section>
+
+
+<!-- =====================================================
+     SELECTED WORK
+     ===================================================== -->
+
+<section class="section work-section" id="work">
+
+  <div class="container">
+
+    <div class="work-heading">
+
+      <div>
+
+        <div class="section-label">
+          SELECTED WORK
+        </div>
+
+        <h2 class="section-title">
+          Different businesses.
+          <br />
+          One standard.
+        </h2>
+
+      </div>
+
+      <p class="work-intro">
+        From personal brands to e-commerce and
+        real estate, we build around the business â€”
+        not the other way around.
+      </p>
+
+    </div>
+
+
+    <!-- FEATURED PROJECT -->
+
+    <article class="work-feature">
+
+      <div class="work-visual work-visual-haven">
+
+        <div class="browser-frame">
+
+          <div class="browser-top">
+
+            <div class="browser-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div class="browser-address">
+              haven
+            </div>
+
+          </div>
+
+          <div class="haven-preview">
+
+            <div class="haven-nav">
+              <strong>HAVEN</strong>
+              <span>Properties</span>
+              <span>About</span>
+              <span>Contact</span>
+            </div>
+
+            <div class="haven-content">
+
+              <span>
+                FIND YOUR PLACE
+              </span>
+
+              <h3>
+                A better way
+                <br />
+                to come home.
+              </h3>
+
+              <div class="haven-button">
+                Explore properties â†’
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="work-feature-copy">
+
+        <div class="work-meta">
+          <span>01</span>
+          <span>REAL ESTATE</span>
+        </div>
+
+        <h3>
+          Haven
+        </h3>
+
+        <p>
+          A premium real-estate experience designed
+          to make property discovery feel effortless,
+          modern and aspirational.
+        </p>
+
+        <div class="work-tags">
+          <span>Strategy</span>
+          <span>Design</span>
+          <span>Development</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PROJECT GRID -->
+
+    <div class="work-grid">
+
+
+      <!-- VANGA -->
+
+      <article class="work-card">
+
+        <div class="work-card-visual vanga-preview">
+
+          <div class="mini-brand">
+            VANGA
+          </div>
+
+          <div class="mini-fashion">
+            <span>NEW</span>
+            <strong>
+              YOUR
+              <br />
+              WORLD.
+            </strong>
+          </div>
+
+          <div class="mini-line"></div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>02</span>
+            <span>BRAND / BUSINESS</span>
+          </div>
+
+          <h3>
+            Vanga
+          </h3>
+
+        </div>
+
+      </article>
+
+
+      <!-- SABISOLE -->
+
+      <article class="work-card">
+
+        <div class="work-card-visual sabisole-preview">
+
+          <div class="mini-brand">
+            SABISOLE
+          </div>
+
+          <div class="shoe-shape">
+            <div class="shoe-upper"></div>
+            <div class="shoe-sole"></div>
+          </div>
+
+          <div class="mini-shop">
+            SHOP NOW â†—
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>03</span>
+            <span>E-COMMERCE</span>
+          </div>
+
+          <h3>
+            SabiSole
+          </h3>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRECIOUS -->
+
+      <article class="work-card">
+
+        <div class="work-card-visual precious-preview">
+
+          <div class="precious-name">
+            PRECIOUS
+            <br />
+            FREEMAN
+          </div>
+
+          <div class="precious-circle"></div>
+
+          <div class="precious-caption">
+            MODEL / CREATIVE
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>04</span>
+            <span>PERSONAL BRAND</span>
+          </div>
+
+          <h3>
+            Precious Freeman
+          </h3>
+
+        </div>
+
+      </article>
+
+
+      <!-- KORA -->
+
+      <article class="work-card">
+
+        <div class="work-card-visual kora-preview">
+
+          <div class="kora-mark">
+            KORA
+          </div>
+
+          <div class="kora-title">
+            MADE
+            <br />
+            WITH
+            <br />
+            INTENTION.
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>05</span>
+            <span>BRAND / BUSINESS</span>
+          </div>
+
+          <h3>
+            Kora
+          </h3>
+
+        </div>
+
+      </article>
+
+
+      <!-- LAGOSSTAY -->
+
+      <article class="work-card">
+
+        <div class="work-card-visual lagosstay-preview">
+
+          <div class="stay-top">
+            LAGOSSTAY
+          </div>
+
+          <div class="stay-title">
+            STAY
+            <br />
+            DIFFERENT.
+          </div>
+
+          <div class="stay-location">
+            LAGOS, NIGERIA
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>06</span>
+            <span>HOSPITALITY</span>
+          </div>
+
+          <h3>
+            LagosStay
+          </h3>
+
+        </div>
+
+      </article>
+
+
+      <!-- AURELIA -->
+
+      <article class="work-card">
+
+        <div class="work-card-visual aurelia-preview">
+
+          <div class="aurelia-brand">
+            AURELIA
+          </div>
+
+          <div class="aurelia-title">
+            BEAUTY
+            <br />
+            IN DETAIL.
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>07</span>
+            <span>BEAUTY / BRAND</span>
+          </div>
+
+          <h3>
+            Aurelia
+          </h3>
+
+        </div>
+
+      </article>
+
+
+      <!-- MOTIVE -->
+
+      <article class="work-card">
+
+        <div class="work-card-visual motive-preview">
+
+          <div class="motive-brand">
+            MOTIVE
+          </div>
+
+          <div class="motive-title">
+            MOVE
+            <br />
+            WITH
+            <br />
+            PURPOSE.
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>08</span>
+            <span>FITNESS / BUSINESS</span>
+          </div>
+
+          <h3>
+            Motive
+          </h3>
+
+        </div>
+
+      </article>
+
+
+      <!-- ATLAS MOTORS -->
+
+      <article class="work-card">
+
+        <div class="work-card-visual atlas-preview">
+
+          <div class="atlas-top">
+            ATLAS MOTORS
+          </div>
+
+          <div class="atlas-car">
+            <div class="car-roof"></div>
+            <div class="car-body"></div>
+            <div class="car-wheel left"></div>
+            <div class="car-wheel right"></div>
+          </div>
+
+          <div class="atlas-bottom">
+            DISCOVER YOUR NEXT CAR â†’
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>09</span>
+            <span>AUTOMOTIVE</span>
+          </div>
+
+          <h3>
+            Atlas Motors
+          </h3>
+
+        </div>
+
+      </article>
+
+
+      <!-- SABISITE -->
+
+      <article class="work-card">
+
+        <div class="work-card-visual sabisite-preview">
+
+          <div class="sabisite-symbol">
+            S
+          </div>
+
+          <div class="sabisite-title">
+            SABISITE
+          </div>
+
+        </div>
+
+        <div class="work-card-info">
+
+          <div class="work-meta">
+            <span>10</span>
+            <span>DIGITAL STUDIO</span>
+          </div>
+
+          <h3>
+            SabiSite
+          </h3>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+</section>
+
+<!-- =====================================================
+     WHY SABISITE
+     ===================================================== -->
+
+<section class="section why-section" id="why">
+
+  <div class="container">
+
+    <div class="why-heading">
+
+      <div class="section-label">
+        WHY SABISITE
+      </div>
+
+      <h2 class="section-title">
+        Not another
+        <br />
+        website factory.
+      </h2>
+
+      <p class="why-intro">
+        We use modern tools, including AI, to move faster â€”
+        but every website is still shaped around the business,
+        the audience and the result it needs to achieve.
+      </p>
+
+    </div>
+
+    <div class="why-grid">
+
+      <article class="why-card">
+
+        <div class="why-number">
+          01 â€” AI-ASSISTED
+        </div>
+
+        <h3>
+          Faster without
+          cutting corners.
+        </h3>
+
+        <p>
+          AI helps us research, explore ideas, write,
+          prototype and build faster. That means more
+          time goes into the things that actually matter:
+          design, strategy and refinement.
+        </p>
+
+      </article>
+
+      <article class="why-card">
+
+        <div class="why-number">
+          02 â€” HUMAN-DIRECTED
+        </div>
+
+        <h3>
+          Technology doesn't
+          replace taste.
+        </h3>
+
+        <p>
+          We direct the process from start to finish.
+          The structure, visual language, content and
+          final decisions are built around your business â€”
+          not generated from a template.
+        </p>
+
+      </article>
+
+      <article class="why-card">
+
+        <div class="why-number">
+          03 â€” BUSINESS-FIRST
+        </div>
+
+        <h3>
+          Built for what
+          your business needs.
+        </h3>
+
+        <p>
+          A website should do more than look good.
+          It should explain what you do, build trust,
+          make it easy to take action and give your
+          business a stronger digital presence.
+        </p>
+
+      </article>
+
+      <article class="why-card">
+
+        <div class="why-number">
+          04 â€” ACCESSIBLE
+        </div>
+
+        <h3>
+          Premium doesn't
+          have to mean overpriced.
+        </h3>
+
+        <p>
+          We keep the process lean and use technology
+          intelligently so ambitious businesses can get
+          a high-quality website without the traditional
+          agency price tag.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     PROCESS
+     ===================================================== -->
+
+<section class="section process-section" id="process">
+
+  <div class="container">
+
+    <div class="process-heading">
+
+      <div class="section-label">
+        HOW IT WORKS
+      </div>
+
+      <h2 class="section-title">
+        Simple process.
+        <br />
+        Serious result.
+      </h2>
+
+      <p class="process-intro">
+        No endless meetings. No complicated agency process.
+        Just a clear path from idea to a website you're proud
+        to put in front of your customers.
+      </p>
+
+    </div>
+
+    <div class="process-list">
+
+      <article class="process-item">
+
+        <div class="process-number">
+          01
+        </div>
+
+        <h3>
+          Tell us what
+          you need.
+        </h3>
+
+        <p>
+          Tell us about your business, what you're trying
+          to achieve and what you want your website to do.
+          We'll take it from there.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          02
+        </div>
+
+        <h3>
+          We design
+          & build.
+        </h3>
+
+        <p>
+          We shape the structure, visual direction and
+          experience around your business, then turn it
+          into a polished working website.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          03
+        </div>
+
+        <h3>
+          Review
+          & refine.
+        </h3>
+
+        <p>
+          You see the work, give us your feedback and we
+          refine the details until everything feels right.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          04
+        </div>
+
+        <h3>
+          Go
+          live.
+        </h3>
+
+        <p>
+          Your website is launched, connected to your
+          domain and ready for your customers to see.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     PRICING
+     ===================================================== -->
+
+<section class="section pricing-section" id="pricing">
+
+  <div class="container">
+
+    <div class="pricing-heading">
+
+      <div class="section-label">
+        PRICING
+      </div>
+
+      <h2 class="section-title">
+        Good websites.
+        <br />
+        Clear prices.
+      </h2>
+
+      <p class="pricing-intro">
+        No mysterious agency quotes. No bloated packages.
+        Just straightforward pricing for businesses that
+        want a website that looks and works properly.
+      </p>
+
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+
+      <article class="price-card">
+
+        <div class="price-card-label">
+          STARTER
+        </div>
+
+        <h3>
+          Get online.
+        </h3>
+
+        <p class="price-card-description">
+          A clean, professional website for businesses
+          that need a strong digital home without
+          unnecessary complexity.
+        </p>
+
+        <div class="price">
+          ₦60,000
+          <small>
+            ONE-TIME
+          </small>
+        </div>
+
+        <ul>
+          <li>Professional website</li>
+          <li>Mobile responsive</li>
+          <li>Contact / WhatsApp integration</li>
+          <li>Basic SEO setup</li>
+        </ul>
+
+      </article>
+
+      <!-- STANDARD -->
+
+      <article class="price-card featured">
+
+        <div class="price-card-label">
+          STANDARD — MOST POPULAR
+        </div>
+
+        <h3>
+          Make an impression.
+        </h3>
+
+        <p class="price-card-description">
+          A more complete digital experience for
+          ambitious businesses ready to take their
+          online presence seriously.
+        </p>
+
+        <div class="price">
+          ₦120,000
+          <small>
+            ONE-TIME
+          </small>
+        </div>
+
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Custom visual direction</li>
+          <li>More pages & sections</li>
+          <li>Advanced interactions</li>
+          <li>Priority refinement</li>
+        </ul>
+
+      </article>
+
+    </div>
+
+    <div class="pricing-secondary">
+
+      <strong>
+        Portfolio websites
+      </strong>
+
+      <span>
+        Starting from ₦50,000
+      </span>
+
+    </div>
+
+    <div class="pricing-note">
+      Need ongoing updates, changes or support?
+      Website maintenance is available at ₦12,000/month.
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     FINAL CTA
+     ===================================================== -->
+
+<section class="section cta-section" id="start">
+
+  <div class="container">
+
+    <div class="cta-content">
+
+      <div class="cta-label">
+        HAVE A PROJECT IN MIND?
+      </div>
+
+      <h2 class="cta-title">
+        Let's build
+        something better.
+      </h2>
+
+      <p class="cta-text">
+        Tell us what you're building, what you need
+        and where you want to go. We'll take it from there.
+      </p>
+
+      <div class="cta-actions">
+
+        <a
+          href="https://wa.me/2347047426376"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-button"
+        >
+          Start a project →
+        </a>
+
+        <a
+          href="#work"
+          class="cta-button secondary"
+        >
+          See our work
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+</main>
+  <!-- =====================================================
+     PROCESS
+     ===================================================== -->
+
+<section class="section process-section" id="process">
+
+  <div class="container">
+
+    <div class="process-heading">
+
+      <div class="section-label">
+        HOW IT WORKS
+      </div>
+
+      <h2 class="section-title">
+        Simple process.
+        <br />
+        Serious result.
+      </h2>
+
+      <p class="process-intro">
+        No endless meetings. No complicated agency process.
+        Just a clear path from idea to a website you're proud
+        to put in front of your customers.
+      </p>
+
+    </div>
+
+    <div class="process-list">
+
+      <article class="process-item">
+
+        <div class="process-number">
+          01
+        </div>
+
+        <h3>
+          Tell us what
+          you need.
+        </h3>
+
+        <p>
+          Tell us about your business, what you're trying
+          to achieve and what you want your website to do.
+          We'll take it from there.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          02
+        </div>
+
+        <h3>
+          We design
+          & build.
+        </h3>
+
+        <p>
+          We shape the structure, visual direction and
+          experience around your business, then turn it
+          into a polished working website.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          03
+        </div>
+
+        <h3>
+          Review
+          & refine.
+        </h3>
+
+        <p>
+          You see the work, give us your feedback and we
+          refine the details until everything feels right.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          04
+        </div>
+
+        <h3>
+          Go
+          live.
+        </h3>
+
+        <p>
+          Your website is launched, connected to your
+          domain and ready for your customers to see.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     PRICING
+     ===================================================== -->
+
+<section class="section pricing-section" id="pricing">
+
+  <div class="container">
+
+    <div class="pricing-heading">
+
+      <div class="section-label">
+        PRICING
+      </div>
+
+      <h2 class="section-title">
+        Good websites.
+        <br />
+        Clear prices.
+      </h2>
+
+      <p class="pricing-intro">
+        No mysterious agency quotes. No bloated packages.
+        Just straightforward pricing for businesses that
+        want a website that looks and works properly.
+      </p>
+
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+
+      <article class="price-card">
+
+        <div class="price-card-label">
+          STARTER
+        </div>
+
+        <h3>
+          Get online.
+        </h3>
+
+        <p class="price-card-description">
+          A clean, professional website for businesses
+          that need a strong digital home without
+          unnecessary complexity.
+        </p>
+
+        <div class="price">
+          ₦60,000
+          <small>
+            ONE-TIME
+          </small>
+        </div>
+
+        <ul>
+          <li>Professional website</li>
+          <li>Mobile responsive</li>
+          <li>Contact / WhatsApp integration</li>
+          <li>Basic SEO setup</li>
+        </ul>
+
+      </article>
+
+      <!-- STANDARD -->
+
+      <article class="price-card featured">
+
+        <div class="price-card-label">
+          STANDARD — MOST POPULAR
+        </div>
+
+        <h3>
+          Make an impression.
+        </h3>
+
+        <p class="price-card-description">
+          A more complete digital experience for
+          ambitious businesses ready to take their
+          online presence seriously.
+        </p>
+
+        <div class="price">
+          ₦120,000
+          <small>
+            ONE-TIME
+          </small>
+        </div>
+
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Custom visual direction</li>
+          <li>More pages & sections</li>
+          <li>Advanced interactions</li>
+          <li>Priority refinement</li>
+        </ul>
+
+      </article>
+
+    </div>
+
+    <div class="pricing-secondary">
+
+      <strong>
+        Portfolio websites
+      </strong>
+
+      <span>
+        Starting from ₦50,000
+      </span>
+
+    </div>
+
+    <div class="pricing-note">
+      Need ongoing updates, changes or support?
+      Website maintenance is available at ₦12,000/month.
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     FINAL CTA
+     ===================================================== -->
+
+<section class="section cta-section" id="start">
+
+  <div class="container">
+
+    <div class="cta-content">
+
+      <div class="cta-label">
+        HAVE A PROJECT IN MIND?
+      </div>
+
+      <h2 class="cta-title">
+        Let's build
+        something better.
+      </h2>
+
+      <p class="cta-text">
+        Tell us what you're building, what you need
+        and where you want to go. We'll take it from there.
+      </p>
+
+      <div class="cta-actions">
+
+        <a
+          href="https://wa.me/2347047426376"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-button"
+        >
+          Start a project →
+        </a>
+
+        <a
+          href="#work"
+          class="cta-button secondary"
+        >
+          See our work
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+</main>
+  <!-- =====================================================
+     PROCESS
+     ===================================================== -->
+
+<section class="section process-section" id="process">
+
+  <div class="container">
+
+    <div class="process-heading">
+
+      <div class="section-label">
+        HOW IT WORKS
+      </div>
+
+      <h2 class="section-title">
+        Simple process.
+        <br />
+        Serious result.
+      </h2>
+
+      <p class="process-intro">
+        No endless meetings. No complicated agency process.
+        Just a clear path from idea to a website you're proud
+        to put in front of your customers.
+      </p>
+
+    </div>
+
+    <div class="process-list">
+
+      <article class="process-item">
+
+        <div class="process-number">
+          01
+        </div>
+
+        <h3>
+          Tell us what
+          you need.
+        </h3>
+
+        <p>
+          Tell us about your business, what you're trying
+          to achieve and what you want your website to do.
+          We'll take it from there.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          02
+        </div>
+
+        <h3>
+          We design
+          & build.
+        </h3>
+
+        <p>
+          We shape the structure, visual direction and
+          experience around your business, then turn it
+          into a polished working website.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          03
+        </div>
+
+        <h3>
+          Review
+          & refine.
+        </h3>
+
+        <p>
+          You see the work, give us your feedback and we
+          refine the details until everything feels right.
+        </p>
+
+      </article>
+
+      <article class="process-item">
+
+        <div class="process-number">
+          04
+        </div>
+
+        <h3>
+          Go
+          live.
+        </h3>
+
+        <p>
+          Your website is launched, connected to your
+          domain and ready for your customers to see.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     PRICING
+     ===================================================== -->
+
+<section class="section pricing-section" id="pricing">
+
+  <div class="container">
+
+    <div class="pricing-heading">
+
+      <div class="section-label">
+        PRICING
+      </div>
+
+      <h2 class="section-title">
+        Good websites.
+        <br />
+        Clear prices.
+      </h2>
+
+      <p class="pricing-intro">
+        No mysterious agency quotes. No bloated packages.
+        Just straightforward pricing for businesses that
+        want a website that looks and works properly.
+      </p>
+
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+
+      <article class="price-card">
+
+        <div class="price-card-label">
+          STARTER
+        </div>
+
+        <h3>
+          Get online.
+        </h3>
+
+        <p class="price-card-description">
+          A clean, professional website for businesses
+          that need a strong digital home without
+          unnecessary complexity.
+        </p>
+
+        <div class="price">
+          ₦60,000
+          <small>
+            ONE-TIME
+          </small>
+        </div>
+
+        <ul>
+          <li>Professional website</li>
+          <li>Mobile responsive</li>
+          <li>Contact / WhatsApp integration</li>
+          <li>Basic SEO setup</li>
+        </ul>
+
+      </article>
+
+      <!-- STANDARD -->
+
+      <article class="price-card featured">
+
+        <div class="price-card-label">
+          STANDARD — MOST POPULAR
+        </div>
+
+        <h3>
+          Make an impression.
+        </h3>
+
+        <p class="price-card-description">
+          A more complete digital experience for
+          ambitious businesses ready to take their
+          online presence seriously.
+        </p>
+
+        <div class="price">
+          ₦120,000
+          <small>
+            ONE-TIME
+          </small>
+        </div>
+
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Custom visual direction</li>
+          <li>More pages & sections</li>
+          <li>Advanced interactions</li>
+          <li>Priority refinement</li>
+        </ul>
+
+      </article>
+
+    </div>
+
+    <div class="pricing-secondary">
+
+      <strong>
+        Portfolio websites
+      </strong>
+
+      <span>
+        Starting from ₦50,000
+      </span>
+
+    </div>
+
+    <div class="pricing-note">
+      Need ongoing updates, changes or support?
+      Website maintenance is available at ₦12,000/month.
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     FINAL CTA
+     ===================================================== -->
+
+<section class="section cta-section" id="start">
+
+  <div class="container">
+
+    <div class="cta-content">
+
+      <div class="cta-label">
+        HAVE A PROJECT IN MIND?
+      </div>
+
+      <h2 class="cta-title">
+        Let's build
+        something better.
+      </h2>
+
+      <p class="cta-text">
+        Tell us what you're building, what you need
+        and where you want to go. We'll take it from there.
+      </p>
+
+      <div class="cta-actions">
+
+        <a
+          href="https://wa.me/2347047426376"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-button"
+        >
+          Start a project →
+        </a>
+
+        <a
+          href="#work"
+          class="cta-button secondary"
+        >
+          See our work
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+</main>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+
+        <div class="footer-logo">
+          SABISITE
+        </div>
+
+        <p class="footer-tagline">
+          AI-assisted websites. Human-directed design.
+          Modern digital experiences for ambitious businesses.
+        </p>
+
+      </div>
+
+      <div class="footer-links">
+
+        <div class="footer-column">
+
+          <div class="footer-column-label">
+            EXPLORE
+          </div>
+
+          <a href="#work">Work</a>
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+
+        </div>
+
+        <div class="footer-column">
+
+          <div class="footer-column-label">
+            START
+          </div>
+
+          <a href="#start">Start a project</a>
+          <a
+            href="https://wa.me/2347047426376"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 SabiSite. All rights reserved.
+      </span>
+
+      <span>
+        Lagos, Nigeria
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
