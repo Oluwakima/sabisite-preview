@@ -8,7 +8,7 @@
     content="width=device-width, initial-scale=1.0"
   />
 
-  <title>SabiSite â€” AI-assisted websites. Human-directed design.</title>
+  <title>SabiSite — AI-assisted websites. Human-directed design.</title>
 
   <meta
     name="description"
@@ -19,7 +19,7 @@
 
   <style>
     /* =========================================================
-       SABISITE 2.0 â€” DESIGN SYSTEM
+       SABISITE 2.0 — DESIGN SYSTEM
        ========================================================= */
 
     :root {
@@ -739,7 +739,7 @@
 
 
 /* =========================================================
-   RESPONSIVE â€” NEW SECTIONS
+   RESPONSIVE — NEW SECTIONS
    ========================================================= */
 
 @media (max-width: 950px) {
@@ -4136,6 +4136,334 @@ footer {
   }
 }
 
+
+/* MOTIVE — FINAL PORTFOLIO CARD SIZE */
+.motive-cover {
+  height: 340px !important;
+  min-height: 340px !important;
+  max-height: 340px !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.motive-cover-image {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  display: block;
+}
+
+.motive-cover-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 24px !important;
+  box-sizing: border-box;
+}
+
+
+/* ATLAS MOTORS — AUTOMOTIVE PORTFOLIO COVER */
+.atlas-cover {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  min-height: 340px !important;
+  max-height: 340px;
+  padding: 0 !important;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #0B281E;
+  color: #FFFFFF;
+}
+
+.atlas-cover-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.atlas-cover-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(11,40,30,.12) 0%,
+      rgba(11,40,30,.08) 42%,
+      rgba(11,40,30,.82) 100%
+    );
+  color: #FFFFFF;
+}
+
+.atlas-cover-top,
+.atlas-cover-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.atlas-cover-bottom {
+  align-items: flex-end;
+}
+
+.atlas-cover-brand,
+.atlas-cover-type,
+.atlas-cover-eyebrow {
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.atlas-cover-type {
+  text-align: right;
+}
+
+.atlas-cover-bottom h3 {
+  margin: 8px 0 0;
+  color: #FFFFFF;
+  font-size: clamp(27px, 3vw, 42px);
+  line-height: .95;
+  letter-spacing: -.045em;
+}
+
+.atlas-cover-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  text-align: right;
+}
+
+.atlas-cover-specs span {
+  color: #F0C75E;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .atlas-cover-top,
+  .atlas-cover-bottom {
+    gap: 12px;
+  }
+
+  .atlas-cover-overlay {
+    padding: 20px;
+  }
+
+  .atlas-cover-specs {
+    display: none;
+  }
+}
+
+
+/* SABISITE — FLAGSHIP DIGITAL STUDIO PORTFOLIO COVER */
+.sabisite-cover {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  min-height: 340px !important;
+  max-height: 340px;
+  padding: 0 !important;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #0B281E;
+  color: #FFFFFF;
+}
+
+.sabisite-cover-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr .9fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px;
+  transform: scale(1.06);
+}
+
+.sabisite-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.sabisite-tile img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.sabisite-tile-haven {
+  grid-row: 1 / 3;
+}
+
+.sabisite-tile-vanga {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.sabisite-tile-sabisole {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.sabisite-tile-motive {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.sabisite-tile-atlas {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.sabisite-cover-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(11,40,30,.88) 0%,
+      rgba(11,40,30,.48) 38%,
+      rgba(11,40,30,.18) 72%,
+      rgba(11,40,30,.34) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(11,40,30,.16),
+      rgba(11,40,30,.68)
+    );
+  color: #FFFFFF;
+}
+
+.sabisite-cover-top,
+.sabisite-cover-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.sabisite-cover-bottom {
+  align-items: flex-end;
+}
+
+.sabisite-cover-brand,
+.sabisite-cover-type,
+.sabisite-cover-eyebrow,
+.sabisite-cover-bottom span {
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.sabisite-cover-type {
+  text-align: right;
+}
+
+.sabisite-cover-center {
+  max-width: 560px;
+}
+
+.sabisite-cover-center h3 {
+  margin: 8px 0 0;
+  color: #FFFFFF;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: .9;
+  letter-spacing: -.05em;
+}
+
+.sabisite-cover-bottom span:last-child {
+  color: #F0C75E;
+  font-weight: 900;
+}
+
+@media (max-width: 700px) {
+  .sabisite-cover-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sabisite-tile-haven {
+    grid-row: 1 / 3;
+  }
+
+  .sabisite-tile-vanga {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .sabisite-tile-sabisole {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .sabisite-tile-motive,
+  .sabisite-tile-atlas {
+    display: none;
+  }
+
+  .sabisite-cover-overlay {
+    padding: 20px;
+  }
+
+  .sabisite-cover-type {
+    display: none;
+  }
+}
+
+
+/* FINAL SABISITE FOOTER ? CLEAN PALETTE */
+.site-footer {
+  background: #0B281E !important;
+  color: #FFFFFF !important;
+}
+
+.site-footer .footer-logo,
+.site-footer .footer-tagline,
+.site-footer .footer-column-label,
+.site-footer .footer-bottom span {
+  color: #FFFFFF !important;
+}
+
+.site-footer .footer-tagline {
+  opacity: 0.88;
+}
+
+.site-footer .footer-column a {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.site-footer .footer-column a:hover {
+  color: #F0C75E !important;
+}
+
+.site-footer .footer-bottom {
+  border-top-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.site-footer .footer-column-label {
+  color: #F0C75E !important;
+}
+
 </style>
 </head>
 
@@ -4179,12 +4507,12 @@ footer {
     </nav>
 
     <a
-      href="https://wa.me/2347047426376"
+      href="https://wa.me/2349029713245"
       target="_blank"
       rel="noopener"
       class="nav-button"
     >
-      Start a project â†’
+      Start a project ↓
     </a>
 
   </header>
@@ -4201,7 +4529,7 @@ footer {
       <div class="hero-copy-block">
 
         <div class="eyebrow">
-          SABISITE â€” DIGITAL STUDIO
+          SABISITE — DIGITAL STUDIO
         </div>
 
         <h1>
@@ -4219,19 +4547,19 @@ footer {
         <div class="hero-actions">
 
           <a
-            href="https://wa.me/2347047426376"
+            href="https://wa.me/2349029713245"
             target="_blank"
             rel="noopener"
             class="button button-primary"
           >
-            Start a project â†’
+            Start a project ↓
           </a>
 
           <a
             href="#work"
             class="button button-secondary"
           >
-            See our work â†“
+            See our work ←
           </a>
 
         </div>
@@ -4381,7 +4709,7 @@ footer {
 
           <p>
             We start with what the website needs
-            to accomplish â€” not with a template.
+            to accomplish — not with a template.
           </p>
 
         </div>
@@ -4485,7 +4813,7 @@ footer {
           </span>
 
           <span class="service-arrow">
-            â†—
+            →
           </span>
 
         </div>
@@ -4519,7 +4847,7 @@ footer {
           </span>
 
           <span class="service-arrow">
-            â†—
+            →
           </span>
 
         </div>
@@ -4551,7 +4879,7 @@ footer {
           </span>
 
           <span class="service-arrow">
-            â†—
+            →
           </span>
 
         </div>
@@ -4585,7 +4913,7 @@ footer {
           </span>
 
           <span class="service-arrow">
-            â†—
+            →
           </span>
 
         </div>
@@ -4888,41 +5216,51 @@ footer {
         </div>
 
       </article>
-        <article class="work-card">
 
-        <div class="work-card-visual atlas-preview">
+<article class="work-card">
 
-          <div class="atlas-top">
-            ATLAS MOTORS
+          <div class="work-card-visual motive-preview motive-cover">
+
+            <img
+              src="assets/motive-cover.jpg"
+              alt="Athlete training in a modern gym"
+              class="motive-cover-image"
+            />
+
+            <div class="motive-cover-overlay">
+
+              <div class="motive-cover-top">
+                <span class="motive-cover-brand">MOTIVE</span>
+                <span class="motive-cover-type">FITNESS / PERFORMANCE</span>
+              </div>
+
+              <div class="motive-cover-bottom">
+                <div>
+                  <span class="motive-cover-eyebrow">FITNESS / TRAINING</span>
+                  <h3>Built<br />to move.</h3>
+                </div>
+
+                <span class="motive-cover-link">START TRAINING →</span>
+              </div>
+
+            </div>
+
           </div>
 
-          <div class="atlas-car">
-            <div class="car-roof"></div>
-            <div class="car-body"></div>
-            <div class="car-wheel left"></div>
-            <div class="car-wheel right"></div>
+          <div class="work-card-info">
+
+            <div class="work-meta">
+              <span>08</span>
+              <span>FITNESS / BRAND</span>
+            </div>
+
+            <h3>
+              Motive
+            </h3>
+
           </div>
 
-          <div class="atlas-bottom">
-            DISCOVER YOUR NEXT CAR â†’
-          </div>
-
-        </div>
-
-        <div class="work-card-info">
-
-          <div class="work-meta">
-            <span>09</span>
-            <span>AUTOMOTIVE</span>
-          </div>
-
-          <h3>
-            Atlas Motors
-          </h3>
-
-        </div>
-
-      </article>
+        </article>
       </div>
     </div>
 
@@ -5049,51 +5387,6 @@ footer {
       </article>
       </div>
     </div>
-
-        <article class="work-card">
-
-          <div class="work-card-visual motive-preview motive-cover">
-
-            <img
-              src="assets/motive-cover.jpg"
-              alt="Athlete training in a modern gym"
-              class="motive-cover-image"
-            />
-
-            <div class="motive-cover-overlay">
-
-              <div class="motive-cover-top">
-                <span class="motive-cover-brand">MOTIVE</span>
-                <span class="motive-cover-type">FITNESS / PERFORMANCE</span>
-              </div>
-
-              <div class="motive-cover-bottom">
-                <div>
-                  <span class="motive-cover-eyebrow">FITNESS / TRAINING</span>
-                  <h3>Built<br />to move.</h3>
-                </div>
-
-                <span class="motive-cover-link">START TRAINING →</span>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="work-card-info">
-
-            <div class="work-meta">
-              <span>08</span>
-              <span>FITNESS / BRAND</span>
-            </div>
-
-            <h3>
-              Motive
-            </h3>
-
-          </div>
-
-        </article>
     <!-- PROPERTY & HOSPITALITY -->
 
     <div class="work-category" id="property-hospitality">
@@ -5161,39 +5454,57 @@ footer {
       <div class="work-category-grid single-project">
         <article class="work-card">
 
-        <div class="work-card-visual atlas-preview">
+  <div class="work-card-visual atlas-preview atlas-cover">
 
-          <div class="atlas-top">
-            ATLAS MOTORS
-          </div>
+    <img
+      src="assets/atlas-cover.jpg"
+      alt="Luxury sports car in a modern showroom"
+      class="atlas-cover-image"
+    />
 
-          <div class="atlas-car">
-            <div class="car-roof"></div>
-            <div class="car-body"></div>
-            <div class="car-wheel left"></div>
-            <div class="car-wheel right"></div>
-          </div>
+    <div class="atlas-cover-overlay">
 
-          <div class="atlas-bottom">
-            DISCOVER YOUR NEXT CAR â†’
-          </div>
+      <div class="atlas-cover-top">
+        <span class="atlas-cover-brand">ATLAS MOTORS</span>
+        <span class="atlas-cover-type">AUTOMOTIVE / SALES</span>
+      </div>
 
-        </div>
+      <div class="atlas-cover-bottom">
 
-        <div class="work-card-info">
-
-          <div class="work-meta">
-            <span>09</span>
-            <span>AUTOMOTIVE</span>
-          </div>
-
+        <div>
+          <span class="atlas-cover-eyebrow">PREMIUM AUTOMOTIVE</span>
           <h3>
-            Atlas Motors
+            Drive<br />
+            something exceptional.
           </h3>
-
         </div>
 
-      </article>
+        <div class="atlas-cover-specs">
+          <span>PERFORMANCE</span>
+          <span>PREMIUM</span>
+          <span>READY TO DRIVE</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="work-card-info">
+
+    <div class="work-meta">
+      <span>09</span>
+      <span>AUTOMOTIVE</span>
+    </div>
+
+    <h3>
+      Atlas Motors
+    </h3>
+
+  </div>
+
+</article>
       </div>
     </div>
 
@@ -5208,19 +5519,60 @@ footer {
       <div class="work-category-grid single-project">
         <article class="work-card">
 
-        <div class="work-card-visual sabisite-preview">
+        <div class="work-card-visual sabisite-preview sabisite-cover">
 
-          <div class="sabisite-symbol">
-            S
-          </div>
+  <div class="sabisite-cover-grid">
 
-          <div class="sabisite-title">
-            SABISITE
-          </div>
+    <div class="sabisite-tile sabisite-tile-haven">
+      <img src="assets/haven-cover.jpg" alt="Haven real estate website" />
+    </div>
 
-        </div>
+    <div class="sabisite-tile sabisite-tile-vanga">
+      <img src="assets/vanga-cover.jpg" alt="Vanga fashion website" />
+    </div>
 
-        <div class="work-card-info">
+    <div class="sabisite-tile sabisite-tile-sabisole">
+      <img src="assets/sabisole-cover.jpg" alt="SabiSole e-commerce website" />
+    </div>
+
+    <div class="sabisite-tile sabisite-tile-motive">
+      <img src="assets/motive-cover.jpg" alt="Motive fitness website" />
+    </div>
+
+    <div class="sabisite-tile sabisite-tile-atlas">
+      <img src="assets/atlas-cover.jpg" alt="Atlas Motors automotive website" />
+    </div>
+
+  </div>
+
+  <div class="sabisite-cover-overlay">
+
+    <div class="sabisite-cover-top">
+      <span class="sabisite-cover-brand">SABISITE</span>
+      <span class="sabisite-cover-type">DIGITAL STUDIO / 2026</span>
+    </div>
+
+    <div class="sabisite-cover-center">
+      <span class="sabisite-cover-eyebrow">
+        AI-ASSISTED WEBSITES
+      </span>
+
+      <h3>
+        Human-directed<br />
+        design.
+      </h3>
+    </div>
+
+    <div class="sabisite-cover-bottom">
+      <span>DESIGN / BUILD / LAUNCH</span>
+      <span>EXPLORE SABISITE →</span>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="work-card-info">
 
           <div class="work-meta">
             <span>10</span>
@@ -5262,7 +5614,7 @@ footer {
       </h2>
 
       <p class="why-intro">
-        We use modern tools, including AI, to move faster â€”
+        We use modern tools, including AI, to move faster —
         but every website is still shaped around the business,
         the audience and the result it needs to achieve.
       </p>
@@ -5274,7 +5626,7 @@ footer {
       <article class="why-card">
 
         <div class="why-number">
-          01 â€” AI-ASSISTED
+          01 — AI-ASSISTED
         </div>
 
         <h3>
@@ -5294,7 +5646,7 @@ footer {
       <article class="why-card">
 
         <div class="why-number">
-          02 â€” HUMAN-DIRECTED
+          02 — HUMAN-DIRECTED
         </div>
 
         <h3>
@@ -5305,7 +5657,7 @@ footer {
         <p>
           We direct the process from start to finish.
           The structure, visual language, content and
-          final decisions are built around your business â€”
+          final decisions are built around your business —
           not generated from a template.
         </p>
 
@@ -5314,7 +5666,7 @@ footer {
       <article class="why-card">
 
         <div class="why-number">
-          03 â€” BUSINESS-FIRST
+          03 — BUSINESS-FIRST
         </div>
 
         <h3>
@@ -5334,7 +5686,7 @@ footer {
       <article class="why-card">
 
         <div class="why-number">
-          04 â€” ACCESSIBLE
+          04 — ACCESSIBLE
         </div>
 
         <h3>
@@ -5507,7 +5859,7 @@ footer {
           <li>Deployment & setup</li>
         </ul>
 
-        <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer" class="price-button">
+        <a href="https://wa.me/2349029713245" target="_blank" rel="noopener noreferrer" class="price-button">
           Start a project →
         </a>
       </article>
@@ -5537,7 +5889,7 @@ footer {
           <li>Deployment & setup</li>
         </ul>
 
-        <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer" class="price-button">
+        <a href="https://wa.me/2349029713245" target="_blank" rel="noopener noreferrer" class="price-button">
           Start a project →
         </a>
       </article>
@@ -5565,7 +5917,7 @@ footer {
           <li>Deployment & setup</li>
         </ul>
 
-        <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer" class="price-button">
+        <a href="https://wa.me/2349029713245" target="_blank" rel="noopener noreferrer" class="price-button">
           Start a project →
         </a>
       </article>
@@ -5593,7 +5945,7 @@ footer {
           <li>Ongoing support</li>
         </ul>
 
-        <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer" class="price-button">
+        <a href="https://wa.me/2349029713245" target="_blank" rel="noopener noreferrer" class="price-button">
           Ask about maintenance →
         </a>
       </article>
@@ -5602,7 +5954,7 @@ footer {
 
     <div class="pricing-note">
       Need something more specific?
-      <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer">
+      <a href="https://wa.me/2349029713245" target="_blank" rel="noopener noreferrer">
         Tell us what you're building →
       </a>
     </div>
@@ -5636,7 +5988,7 @@ footer {
       <div class="cta-actions">
 
         <a
-          href="https://wa.me/2347047426376"
+          href="https://wa.me/2349029713245"
           target="_blank"
           rel="noopener noreferrer"
           class="cta-button"
@@ -5709,8 +6061,7 @@ footer {
         </div>
 
         <p class="footer-tagline">
-          AI-assisted websites. Human-directed design.
-          Modern digital experiences for ambitious businesses.
+          Modern websites for ambitious businesses.
         </p>
 
       </div>
@@ -5736,9 +6087,9 @@ footer {
             START
           </div>
 
-          <a href="https://wa.me/2347047426376" target="_blank" rel="noopener noreferrer">Start a project</a>
+          <a href="https://wa.me/2349029713245" target="_blank" rel="noopener noreferrer">Start a project</a>
           <a
-            href="https://wa.me/2347047426376"
+            href="https://wa.me/2349029713245"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -5769,7 +6120,7 @@ footer {
 <!-- FLOATING WHATSAPP -->
 
 <a
-  href="https://wa.me/2347047426376"
+  href="https://wa.me/2349029713245"
   target="_blank"
   rel="noopener noreferrer"
   class="whatsapp-float"
@@ -5826,180 +6177,3 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =========================================================
-   HAVEN — EDITORIAL PORTFOLIO COVER
-   ========================================================= */
-
-.haven-cover {
-  min-height: 470px !important;
-  padding: 0 !important;
-  position: relative;
-  overflow: hidden;
-  background: #12372A !important;
-  color: #F0C75E !important;
-}
-
-.haven-cover-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-.haven-cover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 40, 30, 0.22) 0%,
-    rgba(11, 40, 30, 0.02) 42%,
-    rgba(11, 40, 30, 0.48) 100%
-  );
-  pointer-events: none;
-}
-
-.haven-cover-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: #F0C75E;
-}
-
-.haven-cover-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.haven-cover-brand {
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-
-.haven-cover-type {
-  padding: 7px 10px;
-  border: 1px solid rgba(240, 199, 94, 0.8);
-  background: rgba(11, 40, 30, 0.72);
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
-
-.haven-cover-bottom {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 30px;
-}
-
-.haven-cover-eyebrow {
-  display: block;
-  margin-bottom: 12px;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-}
-
-.haven-cover h3 {
-  margin: 0 !important;
-  max-width: 620px;
-  color: #F0C75E !important;
-  font-size: clamp(34px, 5vw, 68px) !important;
-  line-height: 0.9 !important;
-  letter-spacing: -0.055em !important;
-  font-weight: 700 !important;
-}
-
-.haven-cover-link {
-  flex-shrink: 0;
-  padding: 13px 16px;
-  background: #F0C75E;
-  color: #0B281E;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  white-space: nowrap;
-}
-
-@media (max-width: 700px) {
-  .haven-cover {
-    min-height: 390px !important;
-  }
-
-  .haven-cover-overlay {
-    padding: 20px;
-  }
-
-  .haven-cover-top {
-    align-items: flex-start;
-  }
-
-  .haven-cover-type {
-    font-size: 7px;
-  }
-
-  .haven-cover-bottom {
-    display: block;
-  }
-
-  .haven-cover h3 {
-    font-size: 40px !important;
-  }
-
-  .haven-cover-link {
-    display: inline-block;
-    margin-top: 18px;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
