@@ -4476,6 +4476,199 @@ footer {
   outline-offset: 4px;
 }
 
+
+/* =========================================================
+   LENSES — PHOTOGRAPHY / CREATIVE PORTFOLIO COVER
+   ========================================================= */
+
+.lenses-cover {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  min-height: 340px !important;
+  max-height: 340px;
+  padding: 0 !important;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #EAE7DE;
+  color: #171717;
+}
+
+.lenses-cover-image {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 50%,
+      #d8d4ca 0%,
+      #bdb8ac 32%,
+      #8f8a80 70%,
+      #5e5a53 100%);
+}
+
+.lenses-frame {
+  position: relative;
+  width: 52%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.22),
+    inset 0 0 0 1px rgba(0,0,0,.12);
+}
+
+.lenses-aperture {
+  position: absolute;
+  inset: 16%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle,
+      #090909 0%,
+      #171717 38%,
+      #383838 60%,
+      #090909 62%,
+      #050505 100%);
+  box-shadow:
+    0 0 0 12px rgba(20,20,20,.18),
+    0 15px 35px rgba(0,0,0,.38);
+}
+
+.lenses-aperture span {
+  position: absolute;
+  inset: 24%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%,
+      rgba(255,255,255,.42),
+      rgba(255,255,255,.06) 18%,
+      #111 55%,
+      #050505 100%);
+}
+
+.lenses-frame-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: rgba(255,255,255,.8);
+  border-style: solid;
+}
+
+.lenses-frame-corner.top-left {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+
+.lenses-frame-corner.top-right {
+  top: -1px;
+  right: -1px;
+  border-width: 2px 2px 0 0;
+}
+
+.lenses-frame-corner.bottom-left {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 2px 2px;
+}
+
+.lenses-frame-corner.bottom-right {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+.lenses-cover-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background:
+    linear-gradient(to bottom,
+      rgba(0,0,0,.22) 0%,
+      rgba(0,0,0,.02) 38%,
+      rgba(0,0,0,.76) 100%);
+  color: #FFFFFF;
+}
+
+.lenses-cover-top,
+.lenses-cover-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.lenses-cover-bottom {
+  align-items: flex-end;
+}
+
+.lenses-cover-brand,
+.lenses-cover-type,
+.lenses-cover-eyebrow {
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.lenses-cover-type {
+  text-align: right;
+}
+
+.lenses-cover-eyebrow {
+  color: #EAE7DE;
+}
+
+.lenses-cover-bottom h3 {
+  margin: 8px 0 0;
+  color: #FFFFFF;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: .9;
+  letter-spacing: -.05em;
+}
+
+.lenses-cover-link {
+  flex-shrink: 0;
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .lenses-cover {
+    height: 300px;
+    min-height: 300px !important;
+    max-height: 300px;
+  }
+
+  .lenses-cover-overlay {
+    padding: 20px;
+  }
+
+  .lenses-cover-type {
+    display: none;
+  }
+
+  .lenses-cover-bottom {
+    display: block;
+  }
+
+  .lenses-cover-link {
+    display: inline-block;
+    margin-top: 16px;
+  }
+
+  .lenses-frame {
+    width: 58%;
+  }
+}
 </style>
 </head>
 
@@ -5343,10 +5536,10 @@ footer {
     <div class="work-category" id="personal-creative">
       <div class="work-category-header">
         <h3 class="work-category-title">Personal &amp; Creative</h3>
-        <span class="work-category-count">01 PROJECT</span>
+        <span class="work-category-count">02 PROJECTS</span>
       </div>
 
-      <div class="work-category-grid single-project">
+      <div class="work-category-grid">
         <a class="work-project-link" href="https://preciousfreeman.netlify.app/" target="_blank" rel="noopener noreferrer"><article class="work-card">
 
                 <div class="work-card-visual precious-preview precious-cover">
@@ -5397,7 +5590,43 @@ footer {
         </div>
 
       </article></a>
+      
+<a class="work-project-link" href="https://lenses-lagos.netlify.app/" target="_blank" rel="noopener noreferrer">
+  <article class="work-card">
+    <div class="work-card-visual lenses-preview lenses-cover">
+      <div class="lenses-cover-image">
+        <div class="lenses-frame">
+          <span class="lenses-frame-corner top-left"></span>
+          <span class="lenses-frame-corner top-right"></span>
+          <span class="lenses-frame-corner bottom-left"></span>
+          <span class="lenses-frame-corner bottom-right"></span>
+          <div class="lenses-aperture"><span></span></div>
+        </div>
       </div>
+      <div class="lenses-cover-overlay">
+        <div class="lenses-cover-top">
+          <span class="lenses-cover-brand">LENSES</span>
+          <span class="lenses-cover-type">PHOTOGRAPHY / CREATIVE</span>
+        </div>
+        <div class="lenses-cover-bottom">
+          <div>
+            <span class="lenses-cover-eyebrow">PHOTOGRAPHY / PORTFOLIO</span>
+            <h3>See the<br />story differently.</h3>
+          </div>
+          <span class="lenses-cover-link">VIEW PORTFOLIO →</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-card-info">
+      <div class="work-meta">
+        <span>11</span>
+        <span>PHOTOGRAPHY / CREATIVE</span>
+      </div>
+      <h3>LENSES</h3>
+    </div>
+  </article>
+</a>
+</div>
     </div>
     <!-- PROPERTY & HOSPITALITY -->
 
@@ -6306,4 +6535,5 @@ document.addEventListener('DOMContentLoaded', function () {
     color: #0B281E !important;
   }
 }
+
 
