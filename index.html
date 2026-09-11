@@ -4669,6 +4669,122 @@ footer {
     width: 58%;
   }
 }
+
+/* BLOOM PORTFOLIO COVER */
+.bloom-cover {
+  height: 340px !important;
+  min-height: 340px !important;
+  max-height: 340px !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  background: #f3eee8 !important;
+}
+
+.bloom-cover-inner {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(186, 145, 191, 0.32), transparent 30%),
+    radial-gradient(circle at 15% 85%, rgba(222, 185, 145, 0.30), transparent 34%),
+    #f3eee8;
+}
+
+.bloom-cover-inner::before {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  right: -55px;
+  bottom: -70px;
+  border: 1px solid rgba(42, 31, 37, 0.14);
+}
+
+.bloom-cover-inner::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  left: -45px;
+  top: 80px;
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.bloom-cover-top,
+.bloom-cover-bottom,
+.bloom-cover-center {
+  position: relative;
+  z-index: 2;
+}
+
+.bloom-cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.bloom-cover-brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  letter-spacing: 0.08em;
+  color: #30242b;
+}
+
+.bloom-cover-type {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: #5c4b54;
+  text-align: right;
+}
+
+.bloom-cover-center {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.bloom-cover-eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: #75626b;
+}
+
+.bloom-cover-center h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 4vw, 54px);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  color: #30242b;
+}
+
+.bloom-cover-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  font-size: 8px;
+  letter-spacing: 0.13em;
+  color: #5c4b54;
+}
+
+.bloom-cover-bottom span:last-child {
+  text-align: right;
+  font-weight: 600;
+}
+
 </style>
 </head>
 
@@ -5273,7 +5389,7 @@ footer {
     <div class="work-category" id="business-brands">
       <div class="work-category-header">
         <h3 class="work-category-title">Business &amp; Brands</h3>
-        <span class="work-category-count">04 PROJECTS</span>
+        <span class="work-category-count">05 PROJECTS</span>
       </div>
 
       <div class="work-category-grid">
@@ -5462,6 +5578,51 @@ footer {
             <h3>
               Motive
             </h3>
+
+          </div>
+
+        </article></a>
+
+
+<a class="work-project-link" href="https://bloom-lagos.netlify.app/" target="_blank" rel="noopener noreferrer"><article class="work-card">
+
+          <div class="work-card-visual bloom-preview bloom-cover">
+
+            <div class="bloom-cover-inner">
+
+              <div class="bloom-cover-top">
+                <span class="bloom-cover-brand">BLOOM</span>
+                <span class="bloom-cover-type">EVENTS / EXPERIENCES</span>
+              </div>
+
+              <div class="bloom-cover-center">
+                <span class="bloom-cover-eyebrow">EVENTS &amp; EXPERIENCES</span>
+                <h3>Make moments<br />feel bigger.</h3>
+              </div>
+
+              <div class="bloom-cover-bottom">
+                <span>CONCEPT · DESIGN · PRODUCTION</span>
+                <span>EXPLORE EVENTS →</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="work-card-info">
+
+            <div class="work-meta">
+              <span>12</span>
+              <span>EVENTS / EXPERIENCES</span>
+            </div>
+
+            <h3>
+              Bloom
+            </h3>
+
+            <p>
+              Event planning, styling, production and experiences.
+            </p>
 
           </div>
 
